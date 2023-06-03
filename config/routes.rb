@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/reviews', to: 'reviews#create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  get 'pages/example', to: 'pages#example'
   # Defines the root path route ("/")
   # root "articles#index"
 end

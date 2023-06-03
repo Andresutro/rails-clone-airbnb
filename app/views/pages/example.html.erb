@@ -1,0 +1,467 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid d-flex justify-content-between">
+    <%= link_to root_path , class: "navbar-brand" do %>
+      <%= image_tag "https://logodownload.org/wp-content/uploads/2016/10/airbnb-logo-0.png", class:'' %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+        <div class="Middle-Topbar">
+            <a href="#" id="A1">
+              <span>Home</span>
+            </a>
+
+            <a href="#" id="A1">
+              <span>Locations</span>
+            </a>
+
+            <a href="#" id="A1">
+              <span>About Us</span>
+            </a>
+        </div>
+      <ul class="navbar-nav me-auto">
+
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Messages", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+          </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  <section class="Top-Container">
+    <div class="Top-Bar">
+      <a href="#" class="Left-TopBar">
+        <!-- Airbnb Logo -->
+        <svg width="32" height="32" fill="#FFFFFF">
+          <path
+            d="M29.24 22.68c-.16-.39-.31-.8-.47-1.15l-.74-1.67-.03-.03c-2.2-4.8-4.55-9.68-7.04-14.48l-.1-.2c-.25-.47-.5-.99-.76-1.47-.32-.57-.63-1.18-1.14-1.76a5.3 5.3 0 00-8.2 0c-.47.58-.82 1.19-1.14 1.76-.25.52-.5 1.03-.76 1.5l-.1.2c-2.45 4.8-4.84 9.68-7.04 14.48l-.06.06c-.22.52-.48 1.06-.73 1.64-.16.35-.32.73-.48 1.15a6.8 6.8 0 007.2 9.23 8.38 8.38 0 003.18-1.1c1.3-.73 2.55-1.79 3.95-3.32 1.4 1.53 2.68 2.59 3.95 3.33A8.38 8.38 0 0022.75 32a6.79 6.79 0 006.75-5.83 5.94 5.94 0 00-.26-3.5zm-14.36 1.66c-1.72-2.2-2.84-4.22-3.22-5.95a5.2 5.2 0 01-.1-1.96c.07-.51.26-.96.52-1.34.6-.87 1.65-1.41 2.8-1.41a3.3 3.3 0 012.8 1.4c.26.4.45.84.51 1.35.1.58.06 1.25-.1 1.96-.38 1.7-1.5 3.74-3.21 5.95zm12.74 1.48a4.76 4.76 0 01-2.9 3.75c-.76.32-1.6.41-2.42.32-.8-.1-1.6-.36-2.42-.84a15.64 15.64 0 01-3.63-3.1c2.1-2.6 3.37-4.97 3.85-7.08.23-1 .26-1.9.16-2.73a5.53 5.53 0 00-.86-2.2 5.36 5.36 0 00-4.49-2.28c-1.85 0-3.5.86-4.5 2.27a5.18 5.18 0 00-.85 2.21c-.13.84-.1 1.77.16 2.73.48 2.11 1.78 4.51 3.85 7.1a14.33 14.33 0 01-3.63 3.12c-.83.48-1.62.73-2.42.83a4.76 4.76 0 01-5.32-4.07c-.1-.8-.03-1.6.29-2.5.1-.32.25-.64.41-1.02.22-.52.48-1.06.73-1.6l.04-.07c2.16-4.77 4.52-9.64 6.97-14.41l.1-.2c.25-.48.5-.99.76-1.47.26-.51.54-1 .9-1.4a3.32 3.32 0 015.09 0c.35.4.64.89.9 1.4.25.48.5 1 .76 1.47l.1.2c2.44 4.77 4.8 9.64 7 14.41l.03.03c.26.52.48 1.1.73 1.6.16.39.32.7.42 1.03.19.9.29 1.7.19 2.5z">
+          </path>
+        </svg>
+       airbnb
+      </a>
+
+
+
+      <div class="Right-Topbar">
+        <a href="#" id="A2">
+          Become a Host
+        </a>
+
+        <a href="#" id="A2-1">
+          <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"
+            style=" height: 14px; width: 14px; fill: currentcolor; position: relative; top: 2px;">
+            <path
+              d="m8.002.25a7.77 7.77 0 0 1 7.748 7.776 7.75 7.75 0 0 1 -7.521 7.72l-.246.004a7.75 7.75 0 0 1 -7.73-7.513l-.003-.245a7.75 7.75 0 0 1 7.752-7.742zm1.949 8.5h-3.903c.155 2.897 1.176 5.343 1.886 5.493l.068.007c.68-.002 1.72-2.365 1.932-5.23zm4.255 0h-2.752c-.091 1.96-.53 3.783-1.188 5.076a6.257 6.257 0 0 0 3.905-4.829zm-9.661 0h-2.75a6.257 6.257 0 0 0 3.934 5.075c-.615-1.208-1.036-2.875-1.162-4.686l-.022-.39zm1.188-6.576-.115.046a6.257 6.257 0 0 0 -3.823 5.03h2.75c.085-1.83.471-3.54 1.059-4.81zm2.262-.424c-.702.002-1.784 2.512-1.947 5.5h3.904c-.156-2.903-1.178-5.343-1.892-5.494l-.065-.007zm2.28.432.023.05c.643 1.288 1.069 3.084 1.157 5.018h2.748a6.275 6.275 0 0 0 -3.929-5.068z">
+            </path>
+          </svg>
+        </a>
+
+        <button class="right-button">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"
+            style=" fill: none; height: 13px; width: 13px; stroke: currentcolor; stroke-width: 3; overflow: visible; position: relative; bottom: 2px;">
+            <g fill="none" fill-rule="nonzero">
+              <path d="m2 16h28"></path>
+              <path d="m2 24h28"></path>
+              <path d="m2 8h28"></path>
+            </g>
+          </svg>
+
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"
+            style="height: 23px; width: 25px; fill: currentcolor; position: relative; left: 6px; top:2px;">
+            <g fill="gray" fill-rule="nonzero">
+              <path
+                d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z">
+              </path>
+            </g>
+          </svg>
+
+        </button>
+      </div>
+    </div>
+
+    <div class="search_input">
+      <div>
+        <a href="#">
+          <div>Location</div>
+          <input type="text" placeholder="Where are you going?">
+        </a>
+      </div>
+
+      <div>
+        <a href="#">
+          <div>Check-In</div>
+          <input type="datetime" placeholder="Date">
+        </a>
+      </div>
+
+      <div>
+        <a href="#">
+          <div>Check-Out</div>
+          <input type="datetime" placeholder="Date">
+        </a>
+      </div>
+
+      <div>
+        <a href="#">
+          <div>Guests</div>
+          <input type="number" placeholder="Add Guests">
+        </a>
+      </div>
+
+      <div>
+        <button class="search_button">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+            style="display:block;fill:none;height:12px;width:12px;stroke:#FFFFFF;stroke-width:4;overflow:visible;"
+            aria-hidden="true" role="presentation" focusable="false">
+            <g fill="none">
+              <path
+                d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9">
+              </path>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+
+    <div class="big-font">
+      <h1>Plan Your Trip, <br> Nearby Places</h1>
+      <button class="button-big-font"><b>Explore Locations</b></button>
+
+    </div>
+
+  </section>
+
+  <section class="all-list1">
+    <ul class="ul1">
+        <a href="#">
+          <li class="li1">
+            <img src="https://a0.muscache.com/im/pictures/8b318783-723f-4584-9b9b-0eb2c8b6078e.jpg?im_q=medq&im_w=240">
+            <span class="span1">
+              <b>Khao Yai</b>
+              <br>
+              <span>30 Minutes by car</span>
+            </span>
+          </li>
+        </a>
+
+        <a href="#">
+          <li class="li1">
+            <img src="https://a0.muscache.com/im/pictures/8b318783-723f-4584-9b9b-0eb2c8b6078e.jpg?im_q=medq&im_w=240">
+            <span class="span1">
+              <b>Chiangrai</b>
+              <br>
+              <span>1 Hours by car</span>
+            </span>
+          </li>
+        </a>
+
+        <a href="#">
+          <li class="li1">
+            <img src="https://a0.muscache.com/im/pictures/76e5f1c6-a788-418c-a28b-f0ee29cffd41.jpg?im_q=medq&im_w=240">
+            <span class="span1">
+              <b>Samui</b>
+              <br>
+              <span>3.5 Hours by car</span>
+            </span>
+          </li>
+        </a>
+
+        <a href="#">
+          <li class="li1">
+            <img src="https://a0.muscache.com/im/pictures/ac2086c9-df0d-4085-94c0-94fe3fb94862.jpg?im_q=medq&im_w=240">
+            <span class="span1">
+              <b>Samet</b>
+              <br>
+              <span>30 Minutes by car</span>
+            </span>
+          </li>
+        </a>
+
+        <a href="#">
+          <li class="li1">
+            <img src="https://a0.muscache.com/im/pictures/76e5f1c6-a788-418c-a28b-f0ee29cffd41.jpg?im_q=medq&im_w=240">
+            <span class="span1">
+              <b>Pathumthani</b>
+              <br>
+              <span>2 Hours by car</span>
+            </span>
+          </li>
+        </a>
+
+        <a href="#">
+          <li class="li1">
+            <img src="https://a0.muscache.com/im/pictures/7c424b7e-0f02-4282-93cf-c5fc5e5e157d.jpg?im_q=medq&im_w=240">
+            <span class="span1">
+              <b>Pattaya</b>
+              <br>
+              <span>45 Minutes by car</span>
+            </span>
+          </li>
+        </a>
+
+        <a href="#">
+          <li class="li1">
+            <img src="https://a0.muscache.com/im/pictures/560c06e1-a396-4414-9e38-4fbe8e9f04c4.jpg?im_q=medq&im_w=240">
+            <span class="span1">
+              <b>Rayong</b>
+              <br>
+              <span>45 Minutes by car</span>
+            </span>
+          </li>
+        </a>
+
+        <a href="#">
+          <li class="li1">
+            <img src="https://a0.muscache.com/im/pictures/847cfb7f-788d-42dc-9148-f375348dde76.jpg?im_q=medq&im_w=240">
+            <span class="span1">
+              <b>Chaingmai</b>
+              <br>
+              <span>1 Hours by car</span>
+            </span>
+          </li>
+        </a>
+
+
+    </ul>
+
+
+
+
+
+  </section>
+
+
+  <section class="Acco">
+    <h2 style="font-weight: bold;">Accomodations</h2>
+
+    <div class="acco-sub">
+
+    <div>
+      <a href="#">
+        <img src="https://a0.muscache.com/im/pictures/a0316ecb-e49b-4b3a-b6b6-c2876b820e8c.jpg?im_w=480" class="product-pic">
+        <b>Houses</b>
+      </a>
+    </div>
+
+    <div>
+      <a href="#">
+        <img src="https://a0.muscache.com/im/pictures/ff69ac49-64e7-4f4a-ae2b-ee01163d0790.jpg?im_w=480" class="product-pic">
+        <b>Log Cabins & Country Houses</b>
+      </a>
+    </div>
+
+
+    <div>
+      <a href="#">
+        <img src="https://a0.muscache.com/im/pictures/ce6814ba-ed53-4d6e-b8f8-c0bbcf821011.jpg?im_w=480" class="product-pic" >
+        <b>Unique Spaces</b>
+      </a>
+    </div>
+
+
+    <div>
+      <a href="#">
+        <img src="https://a0.muscache.com/im/pictures/34b9d53a-8952-47f8-876d-bb927ea487b2.jpg?im_w=480" class="product-pic" >
+        <b>Hot Tubs</b>
+      </a>
+    </div>
+
+
+
+
+
+
+    </div>
+
+  </section>
+
+<section class="black-background">
+
+  <div class="topfont">
+    <h1>Unique Experiences and Activities</h1>
+    <p>Meet with local experts </p>
+  </div>
+
+  <section class="sub-pics">
+
+    <div>
+      <img src="https://a0.muscache.com/im/pictures/4d353c80-e73a-4b04-9e15-ec3d8381b106.jpg?im_w=320">
+      <div class="explain1">
+        <b>Virtual Experiences</b>
+        <p>Travel the world from home</p>
+      </div>
+    </div>
+
+    <div>
+      <img src="https://a0.muscache.com/im/pictures/e81fce5f-2f51-4342-938e-5bc18ae237f4.jpg?im_w=320">
+      <div class="explain1">
+        <b>Experience</b>
+        <p>Experience from Anywhere</p>
+      </div>
+    </div>
+
+
+    <div>
+      <img src="https://a0.muscache.com/im/pictures/b9adfc39-6e2a-4e5f-b6f3-681b306fae5c.jpg?im_w=320">
+      <div class="explain1">
+        <b>Adventure</b>
+        <p>Multi-day trip with accommodation and meals</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section class="white-background">
+  <h1>Be a part of the millions of Airbnb Host Community.</h1>
+  <div class="Host">
+
+    <a href="#">
+      <img src="https://a0.muscache.com/im/pictures/2a16f833-464c-446c-8d74-33eb8c643975.jpg?im_w=320">
+      <div><b>Become a Hostel Host</b></div>
+    </a>
+
+    <a href="#">
+      <img src="https://a0.muscache.com/im/pictures/426a8116-0b94-4407-ae87-924126c81d78.jpg?im_w=320">
+      <div><b>Host a Virtual Experience</b></div>
+    </a>
+
+    <a href="#">
+      <img src="https://a0.muscache.com/im/pictures/a84e92bd-68e6-4ce2-9fdf-b2ce1a377f53.jpg?im_w=320">
+      <div><b>Host your Experience</b></div>
+    </a>
+  </div>
+</section>
+
+<section class="footer">
+  <ul>
+
+  <ul class="sub-footer1">
+    <b>Introduce</b>
+    <li><a href=#>Guide to Use Airbnb</a></li>
+    <li><a href=#>Newsroom</a></li>
+    <li><a href=#>Investor Information</a></li>
+    <li><a href=#>Airbnb Plus</a></li>
+    <li><a href=#>Airbnb Luxe</a></li>
+    <li><a href=#>Hotel Tonight</a></li>
+    <li><a href=#>Airbnb Business Program</a></li>
+    <li><a href=#>Olympic</a></li>
+    <li><a href=#>Jobs</a></li>
+  </ul>
+
+  <ul class="sub-footer1">
+
+    <b>Community</b>
+    <li><a href="#">Diversity</a></li>
+    <li><a href="#">Accesibility</a></li>
+    <li><a href="#">Airbnb Asscociate</a></li>
+    <li><a href="#">Accomodation for Aid Workers</a></li>
+    <li><a href="#">Invite friends</a></li>
+
+  </ul>
+
+  <ul class="sub-footer1">
+    <b>To Host</b>
+    <li><a href="#">Accomudation Hosting</a></li>
+    <li><a href="#">Host a virtual Experience</a></li>
+    <li><a href="#">Host your Experience</a></li>
+    <li><a href="#">Responsible hosting</a></li>
+    <li><a href="#">Data Center</a></li>
+    <li><a href="#">Community Center</a></li>
+  </ul>
+
+  <ul class="sub-footer1">
+    <b>Airbnb Support</b>
+    <li><a href="#">Airbnb's response to COVID-19</a></li>
+    <li><a href="#">Help Center</a></li>
+    <li><a href="#">Reservation Cancellation</a></li>
+    <li><a href="#">Airbnb Neightbor Complaint Support</a></li>
+    <li><a href="#">Trust and Safety</a></li>
+  </ul>
+
+  </ul>
+  <section class="under-footer">
+      <ul>
+        <p>© 2021 Airbnb, Inc. All rights reserved</p>
+        <span class="Word1">
+          Privacy Policy
+        </span>
+        <span>·</span>
+        <span class="Word1">Terms of Service</span>
+        <span>·</span>
+        <sapn class="Word1">Site Map</sapn>
+        <span>·</span>
+        <span class="Word1">Refund Policy</span>
+        <span>·</span>
+        <span class="Word1">Company Details</span>
+
+      </ul>
+
+      <div>
+        <a href="#" style="margin-right: 8px;">
+          <!-- World Icon -->
+          <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"
+            style=" height: 13px; width: 13px; fill: black; position: relative; top: 2px;">
+            <path
+              d="m8.002.25a7.77 7.77 0 0 1 7.748 7.776 7.75 7.75 0 0 1 -7.521 7.72l-.246.004a7.75 7.75 0 0 1 -7.73-7.513l-.003-.245a7.75 7.75 0 0 1 7.752-7.742zm1.949 8.5h-3.903c.155 2.897 1.176 5.343 1.886 5.493l.068.007c.68-.002 1.72-2.365 1.932-5.23zm4.255 0h-2.752c-.091 1.96-.53 3.783-1.188 5.076a6.257 6.257 0 0 0 3.905-4.829zm-9.661 0h-2.75a6.257 6.257 0 0 0 3.934 5.075c-.615-1.208-1.036-2.875-1.162-4.686l-.022-.39zm1.188-6.576-.115.046a6.257 6.257 0 0 0 -3.823 5.03h2.75c.085-1.83.471-3.54 1.059-4.81zm2.262-.424c-.702.002-1.784 2.512-1.947 5.5h3.904c-.156-2.903-1.178-5.343-1.892-5.494l-.065-.007zm2.28.432.023.05c.643 1.288 1.069 3.084 1.157 5.018h2.748a6.275 6.275 0 0 0 -3.929-5.068z">
+            </path>
+          </svg>
+          <b style="text-decoration: underline; color: black;">English(EN)</b>
+        </a>
+
+        <a href="#">
+          <b style="text-decoration: none; color: black;">฿</b>
+          <b style="text-decoration: underline; color: black;">THB</b>
+        </a>
+
+      </div>
+
+      <div class="social-logo">
+        <a href="#">
+          <img src="https://cdn.icon-icons.com/icons2/791/PNG/128/FB_icon-icons.com_65484.png">
+        </a>
+        &nbsp;
+        &nbsp;
+        <a href="#">
+          <img src="https://cdn.icon-icons.com/icons2/512/PNG/512/twitter-3_icon-icons.com_50735.png">
+        </a>
+        &nbsp;
+        &nbsp;
+        <a href="#">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB78iTs9tK4_7FBxExJ1op0lVtJ_-enqdgHhEZbdTUvzw1vGy76dwu9rWbMMAV9Wi3Z-vWy_XRyEz919Mcjzk&usqp=CAU&ec=45774424">
+        </a>
+
+      </div>
+    </section>
+
+</section>
