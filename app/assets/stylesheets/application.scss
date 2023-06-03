@@ -1,3 +1,5 @@
+$primary: #FF3D5F; // Set the primary color to red
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -7,6 +9,12 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  font-family: 'Inter', sans-serif;
+}
