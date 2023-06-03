@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @housing %>
+
+<div>
+  <%= link_to "Edit this housing", edit_housing_path(@housing) %> |
+  <%= link_to "Back to housings", housings_path %>
+
+  <%= button_to "Destroy this housing", @housing, method: :delete %>
+</div>
