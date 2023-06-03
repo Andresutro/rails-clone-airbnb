@@ -1,3 +1,5 @@
+
 <% @housings.each do |housing| %>
-  <%= housing.name %>
+  <%=link_to housing.name,housing_path(housing) %>
   <% end %>
+
