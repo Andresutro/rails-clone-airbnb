@@ -1,38 +1,56 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+  <div class="container-fluid py-4 d-flex align-items-center justify-content-between">
+    <div>
+      <%= link_to "#", class: "navbar-brand" do %>
+        <%= image_tag(asset_path('airbnb.png'), style: 'height: 32px; width: auto;') %>
+      <% end %>
     </div>
+
+    <div style="box-sizing: border-box; display: flex; flex-direction: row; align-items: center; padding: 8px 8px 8px 24px; gap: 16px; background: #FFFFFF; box-shadow: 0px 2px 4px rgba(31, 41, 55, 0.06), 0px 4px 6px rgba(31, 41, 55, 0.1); border-radius: 1000px; justify-content: space-between; margin: 0 auto; position: relative;">
+      <!-- Three options -->
+      <select style="border: none;">
+        <option value="" disabled selected>Anywhere</option>
+        <option value="option1">Santiago</option>
+        <option value="option2">Concepción</option>
+        <option value="option3">Arica</option>
+      </select>
+
+      <div style="border-left: 1px solid #C4C4C4; height: 24px; margin: 0 8px;"></div>
+
+      <select style="border: none;">
+        <option value="" disabled selected>Any week</option>
+        <option value="option1">This week</option>
+        <option value="option2">Next week</option>
+        <option value="option3">Next month</option>
+      </select>
+
+      <div style="border-left: 1px solid #C4C4C4; height: 24px; margin: 0 8px;"></div>
+
+      <select style="border: none; color: gray;">
+        <option value="" disabled selected>Add Guests</option>
+        <option value="option1">Placeholder 1</option>
+        <option value="option2">Placeholder 2</option>
+        <option value="option3">Placeholder 3</option>
+      </select>
+
+      <div style="border-left: 1px solid #C4C4C4; height: 24px; margin: 0 8px;"></div>
+
+      <!-- Search button -->
+      <button class="btn btn-primary rounded-pill" style="display: flex; justify-content: center; align-items: center; height: 40px;">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.0413 13.0418L9.91634 9.91683M0.958008 6.16683C0.958008 3.29035 3.28986 0.958496 6.16634 0.958496C9.04282 0.958496 11.3747 3.29035 11.3747 6.16683C11.3747 9.04331 9.04282 11.3752 6.16634 11.3752C3.28986 11.3752 0.958008 9.04331 0.958008 6.16683Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+
+    <li class="nav-item dropdown">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <div class="dropdown-menu dropdown-menu-end rounded-4 mt-2" aria-labelledby="navbarDropdown">
+        <%= link_to "Action", "#", class: "dropdown-item" %>
+        <%= link_to "Another action", "#", class: "dropdown-item" %>
+        <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+      </div>
+    </li>
   </div>
 </div>
