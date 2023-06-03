@@ -26,14 +26,16 @@
 
       <div style="border-left: 1px solid #C4C4C4; height: 24px; margin: 0 8px;"></div>
 
-      <select style="border: none; color: gray;">
-        <option value="" disabled selected>Add Guests</option>
-        <option value="option1">Placeholder 1</option>
-        <option value="option2">Placeholder 2</option>
-        <option value="option3">Placeholder 3</option>
-      </select>
+      <% if user_signed_in? %>
+        <select style="border: none; color: gray;">
+          <option value="" disabled selected>Add Guests</option>
+          <option value="option1">Placeholder 1</option>
+          <option value="option2">Placeholder 2</option>
+          <option value="option3">Placeholder 3</option>
+        </select>
 
-      <div style="border-left: 1px solid #C4C4C4; height: 24px; margin: 0 8px;"></div>
+        <div style="border-left: 1px solid #C4C4C4; height: 24px; margin: 0 8px;"></div>
+      <% end %>
 
       <!-- Search button -->
       <button class="btn btn-primary rounded-pill" style="display: flex; justify-content: center; align-items: center; height: 40px;">
@@ -41,16 +43,24 @@
           <path d="M13.0413 13.0418L9.91634 9.91683M0.958008 6.16683C0.958008 3.29035 3.28986 0.958496 6.16634 0.958496C9.04282 0.958496 11.3747 3.29035 11.3747 6.16683C11.3747 9.04331 9.04282 11.3752 6.16634 11.3752C3.28986 11.3752 0.958008 9.04331 0.958008 6.16683Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
+
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-end rounded-4 mt-2" aria-labelledby="navbarDropdown">
+            <%= link_to "Bookings", "#", class: "dropdown-item" %>
+            <%= link_to "Your Housing", "#", class: "dropdown-item" %>
+            <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+          </div>
+        </li>
+      <% else %>
+
+        <!-- Sign in and Sign up buttons -->
+        <div>
+          <%= link_to "Sign in", "#", class: "btn btn-primary btn-sm me-2" %>
+          <%= link_to "Sign up", "#", class: "btn btn-outline-primary btn-sm" %>
+        </div>
+      <% end %>
     </div>
-
-
-    <li class="nav-item dropdown">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <div class="dropdown-menu dropdown-menu-end rounded-4 mt-2" aria-labelledby="navbarDropdown">
-        <%= link_to "Action", "#", class: "dropdown-item" %>
-        <%= link_to "Another action", "#", class: "dropdown-item" %>
-        <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
-      </div>
-    </li>
   </div>
 </div>
