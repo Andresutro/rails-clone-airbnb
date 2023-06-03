@@ -3,7 +3,7 @@ class HousingsController < ApplicationController
 
   # GET /housings or /housings.json
   def index
-    @housings = Housing.all
+    @housings = Housing.where(user_id:current_user.id)
   end
 
   # GET /housings/1 or /housings/1.json
@@ -22,7 +22,8 @@ class HousingsController < ApplicationController
   # POST /housings or /housings.json
   def create
     @housing = Housing.new(housing_params)
-
+    @user_id =  current_user.id
+    @housing.user_id = @user_id
     respond_to do |format|
       if @housing.save
         format.html { redirect_to housing_url(@housing), notice: "Housing was successfully created." }
