@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :housings
+  resources :bookings
   devise_for :users
   root to: "pages#home"
   # get '/home', to: 'pages#home'
