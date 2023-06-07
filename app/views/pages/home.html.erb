@@ -1,6 +1,13 @@
 <%= render "shared/card" %>
 
 
-<% @housings.each do |housing| %>
-  <%=link_to housing.name,housing_path(housing) %>
-<% end %>
+<div class="container">
+  <div class="row">
+  <% @housings.each do |housing| %>
+    <div class="col">
+      <%=link_to housing.name,housing_path(housing) %>
+    </div>
+  <% end %>
+  </div>
+</div>
+
