@@ -1,5 +1,29 @@
 <div class="justify-content-center">
-  <div style="margin: 128px 512px">
+  <style>
+    .container {
+      margin: 0 auto;
+      max-width: 768px;
+      padding: 0 16px;
+    }
+
+    .login-form-container {
+      margin-top: 128px;
+      margin-bottom: 128px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0;
+      }
+
+      .login-form-container {
+        margin-top: 64px;
+        margin-bottom: 64px;
+      }
+    }
+  </style>
+
+  <div style="margin: 128px 30%">
     <h2>Log in to your account</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
