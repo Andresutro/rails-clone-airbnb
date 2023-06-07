@@ -56,8 +56,8 @@
       <li class="nav-item dropdown" style="list-style: none;">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-end rounded-4 mt-2" aria-labelledby="navbarDropdown">
-        <%= link_to "Sign In", "#", class: "dropdown-item" %>
-        <%= link_to "Sign Up", "#", class: "dropdown-item" %>
+          <%= link_to "Sign In", new_user_session_path, class: "dropdown-item" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %>
         </div>
       </li>
     <% end %>
