@@ -1,20 +1,48 @@
-<h2>Log in</h2>
+<div class="justify-content-center">
+  <style>
+    .container {
+      margin: 0 auto;
+      max-width: 768px;
+      padding: 0 16px;
+    }
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    .login-form-container {
+      margin-top: 128px;
+      margin-bottom: 128px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0;
+      }
+
+      .login-form-container {
+        margin-top: 64px;
+        margin-bottom: 64px;
+      }
+    }
+  </style>
+
+  <div style="margin: 128px 30%">
+    <h2>Log in to your account</h2>
+
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
+      <div class="form-inputs mt-5 mb-5 border-gray">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email", placeholder: "Email"}, label: false %>
+        <%= f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password", placeholder: "Password"}, label: false %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+
+      <div class="form-actions btn btn-primary rounded-pill mb-2">
+        <%= f.button :submit, "Log in", style: "color: white;" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
