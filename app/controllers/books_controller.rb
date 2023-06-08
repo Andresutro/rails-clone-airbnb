@@ -2,18 +2,18 @@ class BooksController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = book.all
+    @books = Book.all
   end
 
   def show
   end
 
   def new
-    @book = book.new
+    @book = Book.new
   end
 
   def create
-    @book = book.new(booking_params)
+    @book = Book.new(booking_params)
     if @book.save
       redirect_to booking_path(@book), notice: 'book was successfully created.'
     else

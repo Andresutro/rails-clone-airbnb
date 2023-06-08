@@ -1,15 +1,5 @@
 <h1>books</h1>
 
-<%= form_tag bookings_path, method: :get do %>
-  <label for="start_date">Fecha de inicio:</label>
-  <%= text_field_tag :start_date, params[:start_date], class: "datepicker-start" %>
-
-  <label for="end_date">Fecha de término:</label>
-  <%= text_field_tag :end_date, params[:end_date], class: "datepicker-end" %>
-
-  <%= submit_tag "Filtrar" %>
-<% end %>
-
 <ul>
   <% @books.each do |book| %>
     <li>
