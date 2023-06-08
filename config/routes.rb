@@ -5,8 +5,9 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
 
+  get '/bookings', to: 'bookings#index'
 
-  #shallow
+  #shallow  
   devise_for :users
   root to: "pages#home"
   # get '/home', to: 'pages#home'
