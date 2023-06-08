@@ -9,6 +9,7 @@ class HousingsController < ApplicationController
 
   # GET /housings/1 or /housings/1.json
   def show
+    @review = Review.new
   end
 
   # GET /housings/new

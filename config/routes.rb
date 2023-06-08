@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  resources :housings
-  resources :bookings
+  get 'reviews/new'
+  resources :housings do
+    resources :reviews, only: %i[create]
+    resources :bookings, only: %i[new create]
+  end
+
+  get '/bookings', to: 'bookings#index'
+
+  #shallow  
   devise_for :users
   root to: "pages#home"
   # get '/home', to: 'pages#home'
