@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   get 'reviews/new'
   resources :housings do
     resources :reviews, only: %i[create]
-    resources :bookings, only: %i[new create]
+    resources :books, only: %i[new create]
   end
 
-  get '/bookings', to: 'bookings#index'
+  get '/books', to: 'books#index'
 
-  #shallow  
+  #shallow
   devise_for :users
   root to: "pages#home"
   # get '/home', to: 'pages#home'
