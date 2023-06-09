@@ -2,8 +2,6 @@
 
 <%= render @housing %>
 
-
-
 <div class="">
   <div class="col-12 col-sm-6">
     <div class="bg-white rounded p-3">
@@ -13,12 +11,10 @@
           <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
           <%= f.submit 'Schedule your appointment' %>
         <% end %>
+
     </div>
   </div>
 </div>
-
-
-
 
 <div class="row">
   <div class="col-12 col-sm-6">
