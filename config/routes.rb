@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'reviews/new'
   resources :housings do
     resources :reviews, only: %i[create]
-    resources :books, only: %i[new create]
+    resources :books, only: %i[create]
   end
 
   get '/books', to: 'books#index'
