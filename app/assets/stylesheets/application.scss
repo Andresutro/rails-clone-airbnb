@@ -14,8 +14,7 @@ $primary: #FF3D5F; // Set the primary color to red
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import 'flatpickr';
 @import "components/logo";
 @import "components/nav2";
 @import "star-rating.js/dist/star-rating.css";
-
+@import "flatpickr/dist/flatpickr.css";
