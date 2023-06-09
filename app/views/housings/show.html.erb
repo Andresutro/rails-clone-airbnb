@@ -2,13 +2,11 @@
 
 <%= render @housing %>
 
-
-
 <div class="">
   <div class="col-12 col-sm-6">
     <div class="bg-white rounded p-3">
       <h5>Add your review</h5>
-      <%= simple_form_for [@housing, @review] do |f| %>
+      <%= simple_form_for [@housing, @book] do |f| %>
         <%= f.input :content, placeholder: "Add your review here..." %>
         <%= f.input :rating, as: :select, collection: (1..5).to_a, required: true, prompt: "What's your rating", input_html: { data: { controller: "star-rating" } } %>
         <%= f.submit class:"btn btn-flat" %>
@@ -16,12 +14,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
 
 <div class="row">
   <div class="col-12 col-sm-6">
