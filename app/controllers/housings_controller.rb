@@ -1,10 +1,10 @@
 class HousingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :show
   before_action :set_housing, only: %i[ show edit update destroy ]
+  skip_before_action :authenticate_user!, only: :show
 
   # GET /housings or /housings.json
   def index
-    @housings = Housing.where(user_id:current_user.id)
+    @housings = policy_scope(Housing)
   end
 
   # GET /housings/1 or /housings/1.json
@@ -27,6 +27,7 @@ class HousingsController < ApplicationController
     @housing = Housing.new(housing_params)
     @user_id =  current_user.id
     @housing.user_id = @user_id
+    authorize @housing
     respond_to do |format|
       if @housing.save
         format.html { redirect_to housing_url(@housing), notice: "Housing was successfully created." }
@@ -40,6 +41,7 @@ class HousingsController < ApplicationController
 
   # PATCH/PUT /housings/1 or /housings/1.json
   def update
+    authorize @housing
     respond_to do |format|
       if @housing.update(housing_params)
         format.html { redirect_to housing_url(@housing), notice: "Housing was successfully updated." }
@@ -54,7 +56,7 @@ class HousingsController < ApplicationController
   # DELETE /housings/1 or /housings/1.json
   def destroy
     @housing.destroy
-
+    authorize @housing
     respond_to do |format|
       format.html { redirect_to housings_url, notice: "Housing was successfully destroyed." }
       format.json { head :no_content }
@@ -65,6 +67,8 @@ class HousingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_housing
       @housing = Housing.find(params[:id])
+      authorize @housing
+      return @housing
     end
 
     # Only allow a list of trusted parameters through.
