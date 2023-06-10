@@ -41,13 +41,20 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password", placeholder: "Confirm your password" }, label: false %>
+        <%= f.input :first_name,
+                    required: true,
+                    input_html: {  placeholder: "Ingresa tu nombre" }, label: false %>
+        <%= f.input :last_name,
+                    required: true,
+                    input_html: {  placeholder: "Ingresa tu nombre apellido" }, label: false %>
+        <%= f.input :phone_number,
+                    input_html: { placeholder: "Ingresa tu numero telefonico" }, label: false %>
       </div>
 
       <div class="form-actions btn btn-primary mb-2" style='border-radius: 15px;'>
         <%= f.button :submit, "Sign up", style: "color: white;" %>
       </div>
     <% end %>
-
     <%= render "devise/shared/links" %>
   </div>
 </div>
