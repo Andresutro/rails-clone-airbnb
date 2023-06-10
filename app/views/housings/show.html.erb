@@ -1,73 +1,195 @@
-
-<div class="container d-flex justify-content-center">
-<% if policy(@housing).edit? %>
-  <%= link_to "Edit this housing", edit_housing_path(@housing) %> |
-<% end %>
-<% if policy(@housing).destroy? %>
-  <%= button_to "Destroy this housing", @housing, method: :delete %>
-<% end %>
-  <%= link_to "Back to housings", housings_path %>
+<div id='back-to' class="m-4">
+  <% if policy(@housing).edit? %>
+    <%= link_to "Edit this housing", edit_housing_path(@housing) %> |
+  <% end %>
+  <% if policy(@housing).destroy? %>
+    <%= button_to "Destroy this housing", @housing, method: :delete %>
+  <% end %>
+    <%= link_to "Back to housings", housings_path %>
 </div>
 
 <p style="color: green"><%= notice %></p>
+<div class="m-4">
+  <h1> <%= @housing.name %> </h1>
+  <div id='reviews-and-such' class="d-flex spacing-4">
+    <div>
+      <%# Stars %>
+      <i class="fas fa-star star-gray"></i>
+      <small><em class="text-muted"><%= @housing.averagee_rating %></em></small>
 
-<%= render @housing %>
-<div class="justify-content-between">
-  <div class="container">
-  <p> <%= @housing.description %></p>
+      <%# Spacer %>
+      <small><em class="text-muted mx-2">·</em></small>
+
+      <%# Number of reviews %>
+      <small><em class="text-muted"><%= @housing.reviews.count %></em></small>
+      <small><em class="text-muted">reviews</em></small>
+
+      <%# Spacer %>
+      <small><em class="text-muted mx-2">·</em></small>
+
+      <%# Number of reviews %>
+      <small><em class="text-muted"><%= @housing.city %>,</em></small>
+      <small><em class="text-muted"><%= @housing.state %></em></small>
+    </div>
   </div>
 
-  <div class="row">
-    <div class="col-12 col-sm-6">
-      <div class="card border-0 shadow">
-        <div class="card-body">
-          <h5 class="card-title mb-4 text-center">Add your book</h5>
-          <%= simple_form_for [@housing, @book], data: { controller: 'flatpickr' } do |f| %>
-            <div class="row mb-3">
-              <div class="col-md-6">
-                <%= f.input :start_date, as: :string, input_html: { class: 'form-control flatpickr-input', data: { flatpickr_target: 'startTime' } }, label: false, placeholder: 'Start date' %>
-              </div>
-              <div class="col-md-6">
-                <%= f.input :end_date, as: :string, input_html: { class: 'form-control flatpickr-input', data: { flatpickr_target: 'endTime' } }, label: false, placeholder: 'End date' %>
-              </div>
-            </div>
-            <div class="text-center">
-              <%= f.button :submit, 'Schedule your appointment', class: 'btn btn-primary' %>
-            </div>
-          <% end %>
+    <%# Image/s %>
+  <div class="images rounded mt-5">
+    <div class="image bg-primary w-100 h-20 rounded-2" style='height: 35vh;'></div>
+  </div>
+
+  <%# Information + Book %>
+  <div class='mt-5 d-flex mb-4'>
+    <%# Left %>
+    <div class='left col-8' style='margin-right: 64px;'>
+      <h3>Entire rental unit hosted by <%= @housing.user_id %></h3>
+      <div>
+        <%# Roos %>
+        <small><em class="text-muted"><%= @housing.amount_rooms %></em></small>
+        <small><em class="text-muted">rooms</em></small>
+
+        <%# Spacer %>
+        <small><em class="text-muted mx-2">·</em></small>
+
+        <%# Bathrooms %>
+        <small><em class="text-muted"><%= @housing.amount_bathrooms %></em></small>
+        <small><em class="text-muted">bathrooms</em></small>
+
+        <%# Spacer %>
+        <small><em class="text-muted mx-2">·</em></small>
+
+        <%# Number of reviews %>
+        <small><em class="text-muted"><%= @housing.msquare %></em></small>
+        <small><em class="text-muted">m2</em></small>
+      </div>
+
+      <%# Divider %>
+      <hr class="hr my-4"/>
+
+      <p class='text-secondary'><%= @housing.description %></p>
+
+    </div>
+
+    <%# Right %>
+    <div class='right border border-gray shadow p-4 w-100' style='border-radius: 10px;'>
+
+      <%# Info de arriba %>
+      <div class='d-flex justify-content-between mb-3'>
+        <%# Precio por noche %>
+        <div id="pricepernight" class='d-flex align-items-end gap-1'>
+          <h5 style="margin-bottom: 4px;">$<%= @housing.price %></h5>
+          <p style="margin-bottom: 2px;">/ night</p>
         </div>
+
+        <div id='reviews-and-such' class="d-flex spacing-4">
+          <div>
+            <%# Stars %>
+            <i class="fas fa-star star-gray"></i>
+            <small><em class="text-muted"><%= @housing.averagee_rating %></em></small>
+
+            <%# Spacer %>
+            <small><em class="text-muted mx-2">·</em></small>
+
+            <%# Number of reviews %>
+            <small><em class="text-muted"><%= @housing.reviews.count %></em></small>
+            <small><em class="text-muted">reviews</em></small>
+          </div>
+        </div>
+      </div>
+
+      <div id='reviews-and-such' class="d-flex justify-content-center">
+      <div class='w-100'>
+        <%= simple_form_for [@housing, @book], data: { controller: 'flatpickr' } do |f| %>
+          <div>
+            <%= f.input :start_date, as: :string, input_html: { class: 'form-control flatpickr-input', data: { flatpickr_target: 'startTime' } }, label: false, placeholder: 'Start date' %>
+          </div>
+
+          <div>
+            <%= f.input :end_date, as: :string, input_html: { class: 'form-control flatpickr-input', data: { flatpickr_target: 'endTime' } }, label: false, placeholder: 'End date' %>
+          </div>
+
+          <div class="text-center w-100 mt-4">
+          <%= f.button :submit, 'Schedule your appointment', class: 'btn btn-primary text-white py-3 w-100', style:'border-radius: 10px;' %>
+          </div>
+        <% end %>
+        </div>
+      </div>
+
+      <p class='w-100 text-center text-secondary mt-4'>You won't be charged yet.</p>
+
+      <%# Cálculos %>
+
+      <%# Precio por noche %>
+      <div class='d-flex justify-content-between mt-4'>
+        <p>$<%= @housing.price %> x 5 nights</p>
+        <p> $2,125</p>
+      </div>
+
+      <%# Descuento semanal %>
+      <div class='d-flex justify-content-between'>
+        <p>Weekly discount</p>
+        <p class='text-success'>-$28</p>
+      </div>
+
+      <%# Divider %>
+      <hr class="hr my-4"/>
+
+      <%# Total %>
+      <div class='d-flex justify-content-between'>
+        <h6>Total</h6>
+        <h6>$2,097</h6>
       </div>
     </div>
   </div>
 </div>
 
+<%# Divider %>
+<hr class="hr m-4 my-5"/>
 
+<%# Reviews Container %>
+<div class="m-4">
+  <%# Reviews %>
+  <div id='reviews-and-such' class="d-flex spacing-4 mb-2">
+    <div>
+      <%# Stars %>
+      <i class="fas fa-star star-gray"></i>
+      <small><em class="text-muted"><%= @housing.averagee_rating %></em></small>
 
-<div class="row">
-  <div class="col-12 col-sm-6">
-    <h3>Reviews</h3>
-    <% if @housing.reviews.empty? %>
-      <small><em class="text-muted">Be the first one to review this list</em></small>
-    <% end %>
-    <% @housing.reviews.each do |review| %>
-      <div>
-        <% review.rating.times do %>
-          <i class="fas fa-star star-yellow"></i>
-        <% end %>
-        <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
-        <p class="mb-0"><%= review.content %></p>
-      </div>
-      <hr>
-    <% end %>
+      <%# Spacer %>
+      <small><em class="text-muted mx-2">·</em></small>
+
+      <%# Number of reviews %>
+      <small><em class="text-muted"><%= @housing.reviews.count %></em></small>
+      <small><em class="text-muted">reviews</em></small>
+    </div>
   </div>
-  <div class="col-12 col-sm-6">
-    <div class="bg-white rounded p-3">
-      <h5>Add your review</h5>
-      <%= simple_form_for [@housing, @review] do |f| %>
-        <%= f.input :content, placeholder: "Add your review here..." %>
-        <%= f.input :rating, as: :select, collection: (1..5).to_a, required: true, prompt: "What's your rating", input_html: { data: { controller: "star-rating" } } %>
-        <%= f.submit class:"btn btn-flat" %>
+
+  <% if @housing.reviews.empty? %>
+    <small><em class="text-muted">Be the first one to review this list</em></small>
+  <% end %>
+  <% @housing.reviews.each do |review| %>
+    <div>
+      <% review.rating.times do %>
+        <i class="fas fa-star star-yellow"></i>
       <% end %>
+      <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+      <p><%= review.content %></p>
+    </div>
+    <hr>
+  <% end %>
+    </div>
+    <div>
+      <div class="bg-white rounded p-3">
+        <h5>Add your review</h5>
+        <%= simple_form_for [@housing, @review] do |f| %>
+          <%= f.input :content, placeholder: "Write your review here...", label: false, class: "form-control pt-4" %>
+
+          <%= f.input :rating, as: :select, collection: (1..5).to_a, required: true, prompt: "What's your rating",
+                      input_html: { class: "form-select pt-4", data: { controller: "star-rating" } }, label: false %>
+
+          <%= f.submit "Submit", class: "btn btn-primary text-white py-3 px-5 mt-4 rounded-10", style: 'border-radius: 15px;' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

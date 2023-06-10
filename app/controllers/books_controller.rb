@@ -13,7 +13,7 @@ class BooksController < ApplicationController
     @book.user = current_user
     @book.housing_id = params[:housing_id]
     if @book.save
-      redirect_to booking_path(@book), notice: 'book was successfully created.'
+      redirect_to books_path(@book), notice: 'book was successfully created.'
     else
       render render :new, status: :unprocessable_entity
     end
@@ -26,7 +26,7 @@ class BooksController < ApplicationController
     if @book.update(booking_params)
       redirect_to booking_path(@book), notice: 'book was successfully updated.'
     else
-      render :edit
+      render :edit , status: :unprocessable_entity
     end
   end
 

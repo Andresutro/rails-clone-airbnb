@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon border-bottom">
   <div class="container-fluid py-4 d-flex align-items-center justify-content-between">
     <div>
       <%= link_to root_path, class: "navbar-brand" do %>
@@ -47,8 +47,10 @@
       <li class="nav-item dropdown" style="list-style: none;">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-end rounded-4 mt-2" aria-labelledby="navbarDropdown">
-          <%= link_to "Bookings", "#", class: "dropdown-item" %>
-          <%= link_to "Your Housing", housings_path, class: "dropdown-item" %>
+          <%= link_to "Create housing", new_housing_path, class: "dropdown-item" %>
+          <%= link_to "My Housings", housings_path, class: "dropdown-item" %>
+          <%= link_to "My bookings", books_path, class: "dropdown-item" %>
+          <%= link_to "My guest requests", books_path, class: "dropdown-item" %>
           <%= link_to "Log out",  destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
         </div>
       </li>

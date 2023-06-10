@@ -1,5 +1,5 @@
 <!-- app/views/bookings/index.html.erb -->
-<h1>Listado de reservas</h1>
+<h1>Listado de mis reservas</h1>
 
 <table>
   <thead>
@@ -14,10 +14,10 @@
   <tbody>
     <% @books.each do |booking| %>
       <tr>
-        <td><%= book.id %></td>
-        <td><%= book.start_date %> - <%= booking.end_date %></td>
-        <td><%= book.guest_count %></td>
-        <td><%= book.status %></td>
+        <td><%= books.id %></td>
+        <td><%= books.start_date %> - <%= booking.end_date %></td>
+        <td><%= books.guests %></td>
+        <%# <td><%= booking.status %>
         <td>
           <%# <%= link_to "Ver", booking_path(booking) %>
           <%# <%= link_to "Editar", edit_booking_path(booking) %>
