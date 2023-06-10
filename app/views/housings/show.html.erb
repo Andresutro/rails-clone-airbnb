@@ -1,12 +1,13 @@
-<div id='back-to' class="m-4">
+<div id='back-to' class="d-flex m-4 gap-2 text-secondary">
   <% if policy(@housing).edit? %>
-    <%= link_to "Edit this housing", edit_housing_path(@housing) %> |
+    <%= link_to "Edit this housing", edit_housing_path(@housing), class: 'text-secondary', style: 'text-decoration: none;' %> |
   <% end %>
   <% if policy(@housing).destroy? %>
-    <%= button_to "Destroy this housing", @housing, method: :delete %>
+    <%= button_to "Destroy this housing", @housing, method: :delete, class: 'text-secondary', style: 'text-decoration: none; border: none; background-color: transparent;' %> |
   <% end %>
-    <%= link_to "Back to housings", housings_path, class:'text-secondary', style:'text-decoration: none;' %>
+  <%= link_to "Back to housings", housings_path, class: 'text-secondary', style: 'text-decoration: none;' %>
 </div>
+
 
 <p style="color: green"><%= notice %></p>
 <div class="m-4">

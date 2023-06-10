@@ -80,3 +80,5 @@ end
 gem "flatpickr", "~> 4.6"
 gem "pundit"
 gem "faker"
+gem "dotenv-rails", groups: [:development, :test]
+gem "cloudinary"
