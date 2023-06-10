@@ -14,10 +14,10 @@
   <tbody>
     <% @books.each do |booking| %>
       <tr>
-        <td><%= booking.id %></td>
-        <td><%= booking.start_date %> - <%= booking.end_date %></td>
-        <td><%= booking.guest_count %></td>
-        <td><%= booking.status %></td>
+        <td><%= book.id %></td>
+        <td><%= book.start_date %> - <%= booking.end_date %></td>
+        <td><%= book.guest_count %></td>
+        <td><%= book.status %></td>
         <td>
           <%# <%= link_to "Ver", booking_path(booking) %>
           <%# <%= link_to "Editar", edit_booking_path(booking) %>
@@ -27,4 +27,3 @@
     <% end %>
   </tbody>
 </table>
-

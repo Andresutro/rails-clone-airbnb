@@ -15,7 +15,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to booking_path(@book), notice: 'book was successfully created.'
     else
-      render :new #agregar unprocesable entitity
+      render render :new, status: :unprocessable_entity
     end
   end
 
