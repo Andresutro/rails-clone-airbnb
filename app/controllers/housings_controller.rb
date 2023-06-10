@@ -1,5 +1,5 @@
 class HousingsController < ApplicationController
-  before_action :set_housing, only: %i[ show edit update destroy ]
+  before_action :set_housing, only: %i[ show edit update destroy]
   skip_before_action :authenticate_user!, only: :show
 
   # GET /housings or /housings.json

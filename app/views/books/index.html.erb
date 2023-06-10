@@ -1,5 +1,5 @@
 <!-- app/views/bookings/index.html.erb -->
-<h1>Listado de reservas</h1>
+<h1>Listado de mis reservas</h1>
 
 <table>
   <thead>
@@ -16,8 +16,8 @@
       <tr>
         <td><%= booking.id %></td>
         <td><%= booking.start_date %> - <%= booking.end_date %></td>
-        <td><%= booking.guest_count %></td>
-        <td><%= booking.status %></td>
+        <td><%= booking.guests %></td>
+        <%# <td><%= booking.status %>
         <td>
           <%# <%= link_to "Ver", booking_path(booking) %>
           <%# <%= link_to "Editar", edit_booking_path(booking) %>
@@ -27,4 +27,3 @@
     <% end %>
   </tbody>
 </table>
-

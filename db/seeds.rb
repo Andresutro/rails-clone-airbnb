@@ -14,6 +14,7 @@ user_3 = User.create(email:'rodrigo@gmail.com', password:'123456',first_name:'Ro
 
 users = [user_1, user_2, user_3]
 
+
 users.each do |user|
   4.times do
     Housing.create(
