@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_books, only: [:show, :edit, :update, :destroy]
 
   def index
     @books = Book.all
@@ -7,15 +7,18 @@ class BooksController < ApplicationController
 
   def show
   end
+  def new
+    @book = Book.new
+  end
 
   def create
-    @book = Book.new(booking_params)
+    @book = Book.new(books_params)
     @book.user = current_user
     @book.housing_id = params[:housing_id]
     if @book.save
-      redirect_to books_path(@book), notice: 'book was successfully created.'
+      redirect_to books_path(@books), notice: 'Se ha creado la reserva exitosamente'
     else
-      render render :new, status: :unprocessable_entity
+      render  :new, status: :unprocessable_entity
     end
   end
 
@@ -24,7 +27,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(booking_params)
-      redirect_to booking_path(@book), notice: 'book was successfully updated.'
+      redirect_to booking_path(@book), notice: 'La reserva de actualizo con éxito'
     else
       render :edit , status: :unprocessable_entity
     end
@@ -32,16 +35,16 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy
-    redirect_to bookings_path, notice: 'book was successfully destroyed.'
+    redirect_to books_path, notice: 'La reserva fue eliminada con éxito.'
   end
 
     private
 
-    def set_booking
-      @book = book.find(params[:id])
+    def set_books
+      @book = Book.find(params[:id])
     end
 
-    def booking_params
-      params.require(:book).permit(:user_id, :housing_id, :start_date, :end_date, :guests)
+    def books_params
+      params.require(:books).permit(:user_id, :housing_id, :start_date, :end_date, :guests)
     end
 end
