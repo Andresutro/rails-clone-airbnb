@@ -1,9 +1,7 @@
-<h1 class='text-center'>New housing</h1>
+<div class='mx-4 my-5'>
+  <%= link_to "Back to housings", housings_path, class:'text-secondary', style:'text-decoration: none;' %>
 
-<%= render "form", housing: @housing %>
+  <h1 class='mt-5'>New housing</h1>
 
-<br>
-
-<div>
-  <%= link_to "Back to housings", housings_path %>
+  <%= render "form", housing: @housing %>
 </div>
