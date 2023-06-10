@@ -6,5 +6,6 @@ class PagesController < ApplicationController
   end
 
   def example
+    
   end
 end

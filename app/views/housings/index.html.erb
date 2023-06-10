@@ -1,31 +1,9 @@
-<!-- app/views/bookings/index.html.erb -->
-<h1>Listado de reservas</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Fechas</th>
-      <th>Cantidad de personas</th>
-      <th>Estado</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.id %></td>
-        <td><%= booking.start_date %> - <%= booking.end_date %></td>
-        <td><%= booking.guest_count %></td>
-        <td><%= booking.status %></td>
-        <td>
-          <%= link_to "Ver", booking_path(booking) %>
-          <%= link_to "Editar", edit_booking_path(booking) %>
-          <%= link_to "Eliminar", booking_path(booking), method: :delete, data: { confirm: "¿Estás seguro de eliminar esta reserva?" } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to "Nueva reserva", new_booking_path %>
+<div class="container">
+  <div class="row">
+  <% @housings.each do |housing| %>
+    <div class="col-4 mt-5">
+      <%= render "shared/card", housing: housing %>
+    </div>
+  <% end %>
+  </div>
+</div>

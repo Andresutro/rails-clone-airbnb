@@ -4,7 +4,6 @@
   <% @housings.each do |housing| %>
     <div class="col-4 mt-5">
       <%= render "shared/card", housing: housing %>
-      <%= link_to housing.name, housing_path(housing) %>
     </div>
   <% end %>
   </div>

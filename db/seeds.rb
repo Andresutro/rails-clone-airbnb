@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'faker'
+
+# Crear 10 housings falsos
+6.times do
+  Housing.create(
+    name: Faker::Lorem.word,
+    user_id: 1,
+    price: Faker::Number.between(from: 100, to: 1000),
+    amount_bathrooms: Faker::Number.between(from: 1, to: 5),
+    amount_rooms: Faker::Number.between(from: 1, to: 5),
+    msquare: Faker::Number.between(from: 50, to: 200),
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    address: Faker::Address.full_address,
+    description: Faker::Lorem.paragraph
+  )
+end
