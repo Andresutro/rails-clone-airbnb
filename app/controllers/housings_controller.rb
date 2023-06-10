@@ -16,6 +16,7 @@ class HousingsController < ApplicationController
   # GET /housings/new
   def new
     @housing = Housing.new
+    authorize @housing
   end
 
   # GET /housings/1/edit
