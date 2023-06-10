@@ -70,7 +70,7 @@
     </div>
 
     <%# Right %>
-<% unless current_user == @housing.user %>
+<% if current_user != @housing.user %>
     <div class='right border border-gray shadow p-4 w-100' style='border-radius: 10px;'>
 
       <%# Info de arriba %>
@@ -141,6 +141,8 @@
     </div>
   </div>
 </div>
+  <% end %>
+
 
 <%# Divider %>
 <hr class="hr m-4 my-5"/>
@@ -163,7 +165,7 @@
     </div>
   </div>
 
-  <% if @housing.reviews.empty? %>
+  <% if @housing.reviews.empty?  %>
     <small><em class="text-muted">Be the first one to review this list</em></small>
   <% end %>
   <% @housing.reviews.each do |review| %>
@@ -176,6 +178,7 @@
     </div>
     <hr>
   <% end %>
+<% if current_user != @housing.user %>
     </div>
     <div>
       <div class="bg-white rounded p-3">
@@ -191,5 +194,5 @@
       </div>
     </div>
   </div>
-  <% end %>
+<% end %>
 </div>
