@@ -1,31 +1,30 @@
-<h1>books</h1>
+<!-- app/views/bookings/index.html.erb -->
+<h1>Listado de reservas</h1>
 
-<ul>
-  <% @books.each do |book| %>
-    <li>
-      <strong>ID:</strong> <%= book.id %><br>
-      <strong>Name:</strong> <%= book.name %>
-    </li>
-  <% end %>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Fechas</th>
+      <th>Cantidad de personas</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |booking| %>
+      <tr>
+        <td><%= booking.id %></td>
+        <td><%= booking.start_date %> - <%= booking.end_date %></td>
+        <td><%= booking.guest_count %></td>
+        <td><%= booking.status %></td>
+        <td>
+          <%# <%= link_to "Ver", booking_path(booking) %>
+          <%# <%= link_to "Editar", edit_booking_path(booking) %>
+          <%# <%= link_to "Eliminar", booking_path(booking), method: :delete, data: { confirm: "¿Estás seguro de eliminar esta reserva?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<!-- Asegúrate de incluir las dependencias de datepicker.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    $('.datepicker-start').datepicker({
-      autoclose: true,
-      todayHighlight: true
-      // Aquí puedes agregar más opciones de configuración según tus necesidades
-    });
-
-    $('.datepicker-end').datepicker({
-      autoclose: true,
-      todayHighlight: true
-      // Aquí puedes agregar más opciones de configuración según tus necesidades
-    });
-  });
-</script>

@@ -8,12 +8,10 @@ class BooksController < ApplicationController
   def show
   end
 
-  def new
-    @book = Book.new
-  end
-
   def create
     @book = Book.new(booking_params)
+    @book.user = current_user
+    @book.housing_id = params[:housing_id]
     if @book.save
       redirect_to booking_path(@book), notice: 'book was successfully created.'
     else

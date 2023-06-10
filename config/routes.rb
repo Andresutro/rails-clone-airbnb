@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :books, only: %i[create]
   end
 
-  get '/books', to: 'books#index'
+  resources :books, only: %i[index]
 
   #shallow
   devise_for :users
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # post '/reviews', to: 'reviews#create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  get 'pages/example', to: 'pages#example'
+  # get 'pages/example', to: 'pages#example'
   # Defines the root path route ("/")
   # root "articles#index"
 end
