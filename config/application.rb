@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Airbnb
   class Application < Rails::Application
+    config.assets.precompile += %w[custom.scss]
     config.generators do |generate|
       generate.assets false
       generate.helper false
