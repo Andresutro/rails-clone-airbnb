@@ -26,17 +26,17 @@ require 'faker'
   )
 end
 
-# 4.times do
-#   Housing.create(
-#     name: Faker::Lorem.word,
-#     user_id: 2,
-#     price: Faker::Number.between(from: 100, to: 1000),
-#     amount_bathrooms: Faker::Number.between(from: 1, to: 5),
-#     amount_rooms: Faker::Number.between(from: 1, to: 5),
-#     msquare: Faker::Number.between(from: 50, to: 200),
-#     city: Faker::Address.city,
-#     state: Faker::Address.state,
-#     address: Faker::Address.full_address,
-#     description: Faker::Lorem.paragraph_by_chars(number: 500, supplemental: false)
-#   )
-# end
+4.times do
+  Housing.create(
+    name: Faker::Lorem.word,
+    user_id: 2,
+    price: Faker::Number.between(from: 100, to: 1000),
+    amount_bathrooms: Faker::Number.between(from: 1, to: 5),
+    amount_rooms: Faker::Number.between(from: 1, to: 5),
+    msquare: Faker::Number.between(from: 50, to: 200),
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    address: Faker::Address.full_address,
+    description: Faker::Lorem.paragraph_by_chars(number: 500, supplemental: false)
+  )
+end
