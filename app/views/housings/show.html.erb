@@ -42,7 +42,7 @@
   <div class='mt-5 d-flex mb-4'>
     <%# Left %>
     <div class='left col-8' style='margin-right: 64px;'>
-      <h3>Entire rental unit hosted by <%= @housing.user_id %></h3>
+      <h3>Entire rental unit hosted by <%= @housing.user.first_name %></h3>
       <div>
         <%# Roos %>
         <small><em class="text-muted"><%= @housing.amount_rooms %></em></small>

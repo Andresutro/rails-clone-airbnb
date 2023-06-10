@@ -1,12 +1,39 @@
-<div class="container mt-5">
-<h1 class='text-center'> Tus housings</h1>
+<h1 class='mx-4 mb-5' style='margin-top: 75px;'>Your housings</h1>
+
+<%# If there are not %>
+<div class="d-flex m-4 card bg-white" style='border-radius: 15px;'>
+  <div class="row">
+    <%# Left %>
+    <div class='col-6 p-5'>
+      <svg class='mb-4 mt-3' width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.99849 3.08008L3.97559 10.6543L16.1289 26.2236L28.0368 10.6543L21.8922 3.08008H9.99849Z" fill="#F6D7DF"/>
+        <path d="M30.1827 10.8954L16.0038 29.8989L1.81712 10.8954L30.1827 10.8954Z" stroke="#D03660" stroke-width="1.1916"/>
+        <path d="M1.01465 10.6351L9.19495 1.10498H22.4728L30.9976 10.6391" stroke="#D03660" stroke-width="1.1916"/>
+        <path d="M9.34033 1.29199L16.011 30.051L22.6679 1.29199" stroke="#D03660" stroke-width="1.1916"/>
+      </svg>
+      <h4>No houses posted...yet!</h4>
+      <p class="text-secondary mt-1">
+        Time to dust off your bags and start planning your next adventure.
+      </p>
+      <div class="btn btn-primary mt-4 mb-2 text-white w-50" style='border-radius: 15px;'>
+        Become a host
+      </div>
+    </div>
+
+    <%# Right %>
+    <div class="col-6">
+      <%= image_tag(asset_path('image 7.png'), class: 'w-100 h-100') %>
+    </div>
+  </div>
 </div>
 
 
-<div class="container">
+<%# If there are housings %>
+<div class="m-4">
+  <%# Tus housings %>
   <div class="row">
   <% @housings.each do |housing| %>
-    <div class="col-4 mt-5">
+    <div class="col-3 mt-5">
       <%= render "shared/card", housing: housing %>
     </div>
   <% end %>
