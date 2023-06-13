@@ -1,6 +1,8 @@
 <h1 class='mx-4 mb-5' style='margin-top: 75px;'>Your housings</h1>
 
 <%# If there are not %>
+<% if current_user.housings.length == 0 %>
+
 <div class="d-flex m-4 card bg-white" style='border-radius: 15px;'>
   <div class="row">
     <%# Left %>
@@ -26,6 +28,7 @@
     </div>
   </div>
 </div>
+<% end %>
 
 
 <%# If there are housings %>
