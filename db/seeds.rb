@@ -3,21 +3,23 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings"q }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
-
+puts "creating users"
 # Crear 10 housings falsos
-user_1 = User.create(email:'andres@gmail.com', password:'123456',first_name:'Andres',last_name:'Marchant',phone_number:'123456789')
-user_2 = User.create(email:'felipe@gmail.com', password:'123456',first_name:'Felipe',last_name:'Mandiola',phone_number:'123456789')
-user_3 = User.create(email:'rodrigo@gmail.com', password:'123456',first_name:'Rodrigo',last_name:'Von',phone_number:'123456789')
+user_1 = User.create!(email:'andres@gmail.com', password:'123456',first_name:'Andres',last_name:'Marchant',phone_number:'123456789')
+user_2 = User.create!(email:'felipe@gmail.com', password:'123456',first_name:'Felipe',last_name:'Mandiola',phone_number:'123456789')
+user_3 = User.create!(email:'rodrigo@gmail.com', password:'123456',first_name:'Rodrigo',last_name:'Von',phone_number:'123456789')
+puts "finished users"
 
 users = [user_1, user_2, user_3]
 
+# Crear 10 housings falsos
 
 users.each do |user|
   4.times do
-    Housing.create(
+    Housing.create!(
       name: Faker::Lorem.word,
       user_id: user.id,
       price: Faker::Number.between(from: 100, to: 1000),
@@ -31,3 +33,4 @@ users.each do |user|
     )
   end
 end
+puts "finished all seeds"

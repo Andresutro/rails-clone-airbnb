@@ -54,8 +54,6 @@ gem "simple_form", github: "heartcombo/simple_form"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "dotenv-rails"
-
 end
 
 group :development do
@@ -65,7 +63,6 @@ group :development do
   gem "binding_of_caller"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
-
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
@@ -75,10 +72,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+
 end
 
 gem "flatpickr", "~> 4.6"
 gem "pundit"
 gem "faker"
-gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary"
