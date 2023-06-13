@@ -12,6 +12,13 @@ class Book < ApplicationRecord
   def num_guests
     guests
   end
+  def check_in
+
+  end
+  
+  def check_out
+
+  end
   def status
     if start_date.present?
       "Confirmed"
