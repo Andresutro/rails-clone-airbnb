@@ -5,5 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :housings
   has_many :reviews
-  has_many :books
+
+
+  validates :first_name,  length: { maximum: 30 }
+  validates :last_name,  length: { maximum: 30 }
+  validates :phone_number, format: { with: /\A\+56[2-9]\d{8}\z/ }, allow_blank: true
 end

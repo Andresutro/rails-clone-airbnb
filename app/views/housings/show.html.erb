@@ -1,12 +1,13 @@
-<div id='back-to' class="m-4">
+<div id='back-to' class="d-flex m-4 gap-2 text-secondary">
   <% if policy(@housing).edit? %>
-    <%= link_to "Edit this housing", edit_housing_path(@housing) %> |
+    <%= link_to "Edit this housing", edit_housing_path(@housing), class: 'text-secondary', style: 'text-decoration: none;' %> |
   <% end %>
   <% if policy(@housing).destroy? %>
-    <%= button_to "Destroy this housing", @housing, method: :delete %>
+    <%= button_to "Destroy this housing", @housing, method: :delete, class: 'text-secondary', style: 'text-decoration: none; border: none; background-color: transparent;' %> |
   <% end %>
-    <%= link_to "Back to housings", housings_path %>
+  <%= link_to "Back to housings", housings_path, class: 'text-secondary', style: 'text-decoration: none;' %>
 </div>
+
 
 <p style="color: green"><%= notice %></p>
 <div class="m-4">
@@ -42,7 +43,7 @@
   <div class='mt-5 d-flex mb-4'>
     <%# Left %>
     <div class='left col-8' style='margin-right: 64px;'>
-      <h3>Entire rental unit hosted by <%= @housing.user_id %></h3>
+      <h3>Entire rental unit hosted by <%= @housing.user.first_name %></h3>
       <div>
         <%# Roos %>
         <small><em class="text-muted"><%= @housing.amount_rooms %></em></small>
@@ -67,10 +68,10 @@
       <hr class="hr my-4"/>
 
       <p class='text-secondary'><%= @housing.description %></p>
-
     </div>
 
     <%# Right %>
+<% if current_user != @housing.user %>
     <div class='right border border-gray shadow p-4 w-100' style='border-radius: 10px;'>
 
       <%# Info de arriba %>
@@ -96,7 +97,6 @@
           </div>
         </div>
       </div>
-
       <div id='reviews-and-such' class="d-flex justify-content-center">
       <div class='w-100'>
         <%= simple_form_for [@housing, @book], data: { controller: 'flatpickr' } do |f| %>
@@ -142,6 +142,8 @@
     </div>
   </div>
 </div>
+  <% end %>
+
 
 <%# Divider %>
 <hr class="hr m-4 my-5"/>
@@ -164,7 +166,7 @@
     </div>
   </div>
 
-  <% if @housing.reviews.empty? %>
+  <% if @housing.reviews.empty?  %>
     <small><em class="text-muted">Be the first one to review this list</em></small>
   <% end %>
   <% @housing.reviews.each do |review| %>
@@ -177,6 +179,7 @@
     </div>
     <hr>
   <% end %>
+<% if current_user != @housing.user %>
     </div>
     <div>
       <div class="bg-white rounded p-3">
@@ -192,4 +195,5 @@
       </div>
     </div>
   </div>
+<% end %>
 </div>
