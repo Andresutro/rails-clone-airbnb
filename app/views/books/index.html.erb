@@ -1,6 +1,4 @@
-<!-- app/views/bookings/index.html.erb -->
-<h1>Listado de mis reservas</h1>
-
+<h1>Mis Reservas</h1>
 <table>
   <thead>
     <tr>
@@ -12,16 +10,16 @@
     </tr>
   </thead>
   <tbody>
-    <% @books.each do |booking| %>
+    <% @books.each do |book| %>
       <tr>
-        <td><%= booking.id %></td>
-        <td><%= booking.start_date %> - <%= booking.end_date %></td>
-        <td><%= booking.guests %></td>
-        <%# <td><%= booking.status %>
+        <td><%= book.id %></td>
+        <td><%= book.start_date %> - <%= book.end_date %></td>
+        <td><%= book.guests %></td>
+        <td><%= book.status %></td>
         <td>
-          <%# <%= link_to "Ver", booking_path(booking) %>
-          <%# <%= link_to "Editar", edit_booking_path(booking) %>
-          <%# <%= link_to "Eliminar", booking_path(booking), method: :delete, data: { confirm: "¿Estás seguro de eliminar esta reserva?" } %>
+          <%= link_to "Ver", book_path(book) %>
+          <%#= link_to "Editar", edit_book_path(book) %>
+          <%= link_to "Cancelar", book_path(book), method: :delete, data: { confirm: "¿Estás seguro de eliminar esta reserva?" } %>
         </td>
       </tr>
     <% end %>
