@@ -16,7 +16,7 @@ class BooksController < ApplicationController
     @book = Book.new(books_params)
     @book.user = current_user
     @book.housing_id = params[:housing_id]
-
+    authorize @book
     if @book.save
       redirect_to book_path(@book), notice: 'Se ha creado la reserva exitosamente'
     else
@@ -44,6 +44,7 @@ class BooksController < ApplicationController
 
     def set_books
       @book = Book.find(params[:id])
+      authorize @book
     end
 
     def books_params
