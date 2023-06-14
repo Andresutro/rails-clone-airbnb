@@ -6,7 +6,7 @@
       <% end %>
     </div>
 
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon border border-gray shadow py-2 rounded-pill">
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon border border-gray shadow-sm py-2 rounded-pill">
       <!-- Three options -->
       <div style="margin-left: 24px;">
         <%= form_with url: housings_path, method: :get, class: "d-flex" do %>
@@ -20,13 +20,29 @@
 
       <div style="border-left: 1px solid #C4C4C4; height: 24px; margin: 0 8px;"></div>
 
-      <div style="border: none">
-        <%= form_with url: housings_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query,
-            params[:query],
-            style:"border: none; margin-left: 16px;",
-            placeholder: "Any date"
-          %>
+      <div style="border: none; color: gray;">
+        <%= form_with url: housings_path, class: "d-flex", data: { controller: 'flatpickr' } do |f| %>
+          <div>
+            <%= f.text_field :start_date, as: :string, input_html: { class: 'flatpickr-input', data: { flatpickr_target: 'startTime' } }, label: false, placeholder: 'Start date'
+              text_field_tag :query,
+              params[:query],
+              data: { flatpickr_target: 'startTime' },
+              style:"border: none; margin-left: 8px;",
+              placeholder: "Start Date"
+            %>
+          </div>
+
+          <div style="border-left: 1px solid #C4C4C4; height: 24px; margin: 0 8px;"></div>
+
+          <div>
+            <%= f.text_field :end_date, as: :string, input_html: { class: 'flatpickr-input', data: { flatpickr_target: 'endTime' } }, label: false, placeholder: 'End date'
+              text_field_tag :query,
+              params[:query],
+              data: { flatpickr_target: 'endTime' },
+              style:"border: none; margin-left: 8px;",
+              placeholder: "End Date"
+            %>
+          </div>
         <% end %>
       </div>
 
@@ -41,8 +57,6 @@
           %>
         <% end %>
       </div>
-
-      <div style="border-left: 1px solid #C4C4C4; height: 24px; margin: 0 8px;"></div>
 
       <button class="btn btn-primary rounded-pill" style="display: flex; justify-content: center; align-items: center; height: 40px; margin-right: 10px; margin-left: 16px;">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
