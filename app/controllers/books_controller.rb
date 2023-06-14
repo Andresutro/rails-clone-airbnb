@@ -2,11 +2,12 @@ class BooksController < ApplicationController
   before_action :set_books, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = Book.all
+    @books = policy_scope(Book)
   end
 
   def show
   end
+
   def new
     @book = Book.new
   end
@@ -15,8 +16,9 @@ class BooksController < ApplicationController
     @book = Book.new(books_params)
     @book.user = current_user
     @book.housing_id = params[:housing_id]
+    authorize @book
     if @book.save
-      redirect_to books_path(@books), notice: 'Se ha creado la reserva exitosamente'
+      redirect_to book_path(@book), notice: 'Se ha creado la reserva exitosamente'
     else
       render  :new, status: :unprocessable_entity
     end
@@ -42,9 +44,10 @@ class BooksController < ApplicationController
 
     def set_books
       @book = Book.find(params[:id])
+      authorize @book
     end
 
     def books_params
-      params.require(:books).permit(:user_id, :housing_id, :start_date, :end_date, :guests)
+      params.require(:book).permit(:start_date, :end_date, :guests)
     end
 end

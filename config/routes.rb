@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-  get 'reviews/new'
-  resources :housings do
+  get '/books', to: 'books#index'
+  get '/books/:id', to: 'books#show', as: 'book'
+  delete '/books/:id', to: 'books#destroy'
+  
+
+
+  resources :housings  do
     resources :reviews, only: %i[create]
     resources :books, only: %i[create]
-    resources :bookings
-
   end
 
-  resources :books, only: %i[index]
 
 
 
@@ -17,14 +19,7 @@ Rails.application.routes.draw do
   get '/books', to: 'books#index'
 
 
-  get '/books', to: 'books#index'
-  post '/books', to: 'books#create'
-  get '/books/new', to: 'books#new', as: 'new_book'
-  get '/books/:id/edit', to: 'books#edit', as: 'edit_book'
-  get '/books/:id', to: 'books#show', as: 'book'
-  patch '/books/:id', to: 'books#update'
-  put '/books/:id', to: 'books#update'
-  delete '/books/:id', to: 'books#destroy'
+
 
   # get '/home', to: 'pages#home'
   # post '/offers', to: 'offers#index'
