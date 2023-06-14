@@ -14,6 +14,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_173844) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookings", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "housting_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.decimal "price"
+    t.integer "m2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "books", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "housing_id", null: false
@@ -22,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_173844) do
     t.integer "guests"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "pending"
     t.index ["housing_id"], name: "index_books_on_housing_id"
     t.index ["user_id"], name: "index_books_on_user_id"
   end
@@ -61,7 +73,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_173844) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status", default: "pending"
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
