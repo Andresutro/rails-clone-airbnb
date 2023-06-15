@@ -15,17 +15,16 @@ class Book < ApplicationRecord
   def check_in
 
   end
-  
+
   def check_out
 
   end
-  def status
-    if start_date.present?
-      "Confirmed"
-    else
-      "Pending"
-    end
-  end
+  # def status
+  #   if start_date.present?
+  #     "Confirmed"
+  #   else
+  #     "Pending"
+  #   end
 
-
+  # end
 end

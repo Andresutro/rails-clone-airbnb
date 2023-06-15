@@ -1,9 +1,10 @@
-<#h1>Detalles de la reserva</h1>
+<h1>Detalles de la reserva</h1>
 
-#<#% if @book %>
- # <#p><strong>Check-in:</strong> <%= @book.start_date %></p>
- # <#p><strong>Check-out:</strong> <%= @book.end_date %></p>
- # <#p><strong>Guests:</strong> <%= @book.guests %></p>
-<#% else %>
- # <#p>No se encontró ninguna reserva.</p>
-<#% end %>
+<% if @book %>
+ <p><strong>Check-in:</strong> <%= @book.start_date %></p>
+ <p><strong>Check-out:</strong> <%= @book.end_date %></p>
+ <p><strong>Guests:</strong> <%= @book.guests %></p>
+ <p><strong>Guests:</strong> <%= @book.status %></p>
+<% else %>
+  <p>No se encontró ninguna reserva.</p>
+<% end %>
