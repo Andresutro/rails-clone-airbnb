@@ -20,7 +20,7 @@ users = [user_1, user_2, user_3]
 users.each do |user|
   4.times do
     Housing.create!(
-      name: Faker::Lorem.word,
+      name: Faker::Company.name[0..20],
       user_id: user.id,
       price: Faker::Number.between(from: 100, to: 1000),
       amount_bathrooms: Faker::Number.between(from: 1, to: 5),
@@ -29,7 +29,9 @@ users.each do |user|
       city: Faker::Address.city,
       state: Faker::Address.state,
       address: Faker::Address.full_address,
-      description: Faker::Lorem.paragraph_by_chars(number: 500, supplemental: false)
+      description: Faker::Lorem.paragraph_by_chars(number: 500, supplemental: false),
+      images: 'https://res.cloudinary.com/dygidrhdn/image/upload/v1686697776/newalisa_snse01.webp'
+
     )
   end
 end

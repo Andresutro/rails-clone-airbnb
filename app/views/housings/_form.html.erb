@@ -5,6 +5,7 @@
 
     <div class="form-inputs mt-5">
       <%= f.input :name, required: true, label: false, placeholder: "Housing name" %>
+      <%= f.input :images, as: :file, required: true, label: false, placeholder: "Image", id: "upload_widget", class: "cloudinary-button" %>
       <%= f.input :price, required: true, label: false, placeholder: "Price per night" %>
       <%= f.input :amount_bathrooms, required: true, label: false, placeholder: "Bathrooms" %>
       <%= f.input :amount_rooms, required: true, label: false, placeholder: "Rooms" %>
@@ -13,7 +14,25 @@
       <%= f.input :state, required: true, label: false, placeholder: "State" %>
       <%= f.input :address, required: true, label: false, placeholder: "Address" %>
       <%= f.input :description, required: true, label: false, placeholder: "Description" %>
-    </div>
+
+
+      <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+      <script type="text/javascript">
+      var widget = cloudinary.applyUploadWidget({
+        dygidrhdn: 'demo',
+        ml_default: 'blog_upload' },
+        (error, result) => {
+            if (!error && result && result.event === "success") {
+              console.log('Done uploading..: ', result.info);
+              }
+
+          });
+
+      document.getElementById("upload_widget").addEventListener("click", function(){
+        myWidget.open();
+      }, false);
+        </script>
+        </div>
 
     <div class="form-actions">
       <%= f.button :submit, class: "btn btn-primary text-white px-4 py-3 mt-3", style: 'border-radius: 15px;' %>
