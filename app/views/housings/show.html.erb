@@ -99,23 +99,25 @@
       </div>
       <div id='reviews-and-such' class="d-flex justify-content-center">
       <div class='w-100'>
-        <%= simple_form_for [@housing, @book], data: { controller: 'flatpickr' } do |f| %>
+        <%= simple_form_for [@housing, @book], data: { controller: 'flatpickr' ,action: 'click->flatpickr#calculateDays'} do |f| %>
           <div>
             <%= f.input :start_date, as: :string, input_html: { class: 'form-control flatpickr-input', data: { flatpickr_target: 'startTime' } }, label: false, placeholder: 'Start date' %>
           </div>
 
           <div>
-            <%= f.input :end_date, as: :string, input_html: { class: 'form-control flatpickr-input', data: { flatpickr_target: 'endTime' } }, label: false, placeholder: 'End date' %>
+            <%= f.input :end_date, as: :string, input_html: { class: 'form-control flatpickr-input', data: { flatpickr_target: 'endTime' } , id: 'end_time'}, label: false, placeholder: 'End date' %>
           </div>
 
           <div>
+            <p>Días: <span type="text" data-controller="flatpickr" data-target="dayCount"></span></p>
             <%= f.input :guests, as: :integer %>
           </div>
 
           <div class="text-center w-100 mt-4">
-          <%= f.button :submit, 'Schedule your appointment', class: 'btn btn-primary text-white py-3 w-100', style:'border-radius: 10px;' %>
+            <%= f.button :submit, 'Schedule your appointment', class: 'btn btn-primary text-white py-3 w-100', style:'border-radius: 10px;' %>
           </div>
         <% end %>
+
         </div>
       </div>
 
