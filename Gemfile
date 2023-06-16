@@ -80,3 +80,4 @@ gem "pundit"
 gem "faker"
 gem "cloudinary"
 gem "dotenv-rails", groups: [:development, :test]
+gem 'open-uri'

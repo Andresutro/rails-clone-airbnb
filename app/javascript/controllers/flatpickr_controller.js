@@ -5,7 +5,7 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 
 // Connects to data-controller="flatpickr"
 export default class extends Controller {
-  static targets = [ "startTime", "endTime", "dayCount" ]
+  static targets = [ "startTime", "endTime", "dayCount",'housingPrice']
 
   connect() {
     flatpickr(this.startTimeTarget, {
@@ -47,5 +47,22 @@ calculateDays() {
   console.log('dias', diferenciaEnDias)
 
 
+
+  if (isNaN(diferenciaEnDias)) {
+    this.dayCountTarget.innerText  = 0
+} else {
+    this.dayCountTarget.innerText  = diferenciaEnDias
+    // this.housingPriceTarget.innerText = diferenciaEnDias
+    // let total = precio * diferenciaEnDias
+    // console.log('precio',precio)
+    // console.log('total',total)
+
 }
+}
+
+// calculateTotal() {
+//   console.log('total',total)
+//   total =  diferenciaEnDias * precio
+//   this.ttotalTarget.innerText = total
+// }
 }

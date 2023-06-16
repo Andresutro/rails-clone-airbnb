@@ -36,7 +36,7 @@
 
   <%# Image/s %>
   <div class="rounded mt-4">
-    <div class="w-100 h-20 rounded-2" style='height: 75vh; background-image: url("<%= cl_image_tag @housing.images.key %>"); background-size: cover; background-repeat: no-repeat; background-position: center center;'>
+    <%# <div class="w-100 h-20 rounded-2" style='height: 75vh; background-image: url("<%= cl_image_tag @housing.images.key %>"); background-size: cover; background-repeat: no-repeat; background-position: center center;'> %>
     </div>
   </div>
 
@@ -79,7 +79,7 @@
       <div class='d-flex justify-content-between mb-3'>
         <%# Precio por noche %>
         <div id="pricepernight" class='d-flex align-items-end gap-1'>
-          <h5 style="margin-bottom: 4px;">$<%= @housing.price %></h5>
+          <h5 style="margin-bottom: 4px;">$ <%= @housing.price %></span></h5>
           <p style="margin-bottom: 2px;">/ night</p>
         </div>
 
@@ -110,7 +110,7 @@
           </div>
 
           <div>
-            <p>Días: <span type="text" data-controller="flatpickr" data-target="dayCount"></span></p>
+            <p>Días: <span type="text"  data-flatpickr-target="dayCount">0</span></p>
             <%= f.input :guests, as: :integer %>
           </div>
 
@@ -128,8 +128,8 @@
 
       <%# Precio por noche %>
       <div class='d-flex justify-content-between mt-4'>
-        <p>$<%= @housing.price %> x 5 nights</p>
-        <p> $2,125</p>
+        <p>$<%= @housing.price %> x <p>Días: <span type="text"  >0</span></p> </p>
+        <p> $2,125 <span type="text" >1500</span></p>
       </div>
 
       <%# Descuento semanal %>

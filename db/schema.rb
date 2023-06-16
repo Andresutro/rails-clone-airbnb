@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_16_005950) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_16_055628) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +61,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_005950) do
     t.integer "guests"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "pending"
+    t.integer "total_price"
     t.index ["housing_id"], name: "index_books_on_housing_id"
     t.index ["user_id"], name: "index_books_on_user_id"
   end
@@ -78,7 +80,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_005950) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
-    t.string "images"
+    t.string "photo"
+    t.integer "max_persons"
     t.index ["user_id"], name: "index_housings_on_user_id"
   end
 
@@ -101,7 +104,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_005950) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status", default: "pending"
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"

@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings"q }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
+require "open-uri"
+
 puts "creating users"
 # Crear 10 housings falsos
 user_1 = User.create!(email:'andres@gmail.com', password:'123456',first_name:'Andres',last_name:'Marchant',phone_number:'123456789')
@@ -16,10 +18,10 @@ puts "finished users"
 users = [user_1, user_2, user_3]
 
 # Crear 10 housings falsos
-
+puts "creating housingngs"
 users.each do |user|
   4.times do
-    Housing.create!(
+    housing = Housing.create!(
       name: Faker::Company.name[0..20],
       user_id: user.id,
       price: Faker::Number.between(from: 100, to: 1000),
@@ -30,9 +32,12 @@ users.each do |user|
       state: Faker::Address.state,
       address: Faker::Address.full_address,
       description: Faker::Lorem.paragraph_by_chars(number: 500, supplemental: false),
-      images: 'https://res.cloudinary.com/dygidrhdn/image/upload/v1686697776/newalisa_snse01.webp'
-
+      max_persons: Faker::Number.between(from: 1, to: 20)
     )
+    file = URI.open("https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?fit=2500%2C1666")
+    housing.images.attach(io: file, filename: "nes.png", content_type: "image/png")
+    housing.save
+
   end
 end
 puts "finished all seeds"
