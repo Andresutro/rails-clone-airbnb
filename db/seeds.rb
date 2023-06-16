@@ -8,9 +8,9 @@
 require 'faker'
 puts "creating users"
 # Crear 10 housings falsos
-user_1 = User.create!(email:'andres@gmail.com', password:'123456',first_name:'Andres',last_name:'Marchant',phone_number:'123456789')
-user_2 = User.create!(email:'felipe@gmail.com', password:'123456',first_name:'Felipe',last_name:'Mandiola',phone_number:'123456789')
-user_3 = User.create!(email:'rodrigo@gmail.com', password:'123456',first_name:'Rodrigo',last_name:'Von',phone_number:'123456789')
+user_1 = User.create!(email:'andres@gmail.com', password:'123456',first_name:'Andres',last_name:'Marchant',phone_number:'+56912345678')
+user_2 = User.create!(email:'felipe@gmail.com', password:'123456',first_name:'Felipe',last_name:'Mandiola',phone_number:'+56912345678')
+user_3 = User.create!(email:'rodrigo@gmail.com', password:'123456',first_name:'Rodrigo',last_name:'Von',phone_number:'+56912345678')
 puts "finished users"
 
 users = [user_1, user_2, user_3]

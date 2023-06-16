@@ -2,11 +2,11 @@ class Book < ApplicationRecord
   belongs_to :user
   belongs_to :housing
   attribute :state, :string
-  #validates :start_date, presence: true
-  #validates :end_date, presence: true
-  #validates :num_guests, presence: true, numericality: { greater_than: 0 }
-  #validates :status, presence: true, inclusion: { in: ['confirmed', 'pending', 'cancelled'] }
-  #validates :state, inclusion: { in: ['pendig', 'accepted', 'rejected'] }
+  validates :user_id, presence: true
+  validates :housing_id, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validates :guests, presence: true, numericality: { greater_than: 0 }
   validates_presence_of :housing, presence: true
 
   def num_guests
@@ -15,7 +15,7 @@ class Book < ApplicationRecord
   def check_in
 
   end
-  
+
   def check_out
 
   end

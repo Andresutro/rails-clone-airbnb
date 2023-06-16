@@ -26,8 +26,8 @@ class BooksController < ApplicationController
   end
 
   def update
-    if @book.update(booking_params)
-      redirect_to booking_path(@book), notice: 'La reserva de actualizo con éxito'
+    if @book.update(books_params)
+      redirect_to books_path(@book), notice: 'La reserva de actualizo con éxito'
     else
       render :edit , status: :unprocessable_entity
     end

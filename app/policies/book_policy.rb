@@ -4,5 +4,6 @@ class BookPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+    
   end
 end
