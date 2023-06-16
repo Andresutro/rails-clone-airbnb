@@ -70,6 +70,7 @@
       <li class="nav-item dropdown" style="list-style: none;">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-end rounded-4 mt-2" aria-labelledby="navbarDropdown">
+          <%= link_to "Profile", new_housing_path, class: "dropdown-item" %>
           <%= link_to "Create housing", new_housing_path, class: "dropdown-item" %>
           <%= link_to "My Housings", housings_path, class: "dropdown-item" %>
           <%= link_to "My bookings", books_path, class: "dropdown-item" %>
