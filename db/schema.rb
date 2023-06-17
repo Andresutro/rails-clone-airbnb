@@ -78,7 +78,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_005950) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
-    t.string "images"
     t.index ["user_id"], name: "index_housings_on_user_id"
   end
 
