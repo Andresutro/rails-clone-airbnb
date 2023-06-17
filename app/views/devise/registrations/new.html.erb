@@ -30,10 +30,18 @@
       <%= f.error_notification %>
 
       <div class="form-inputs mt-5 mb-5 border-gray">
+        <%= f.input :first_name,
+                    required: true,
+                    input_html: {  placeholder: "First Name" }, label: false %>
+        <%= f.input :last_name,
+                    required: true,
+                    input_html: {  placeholder: "Last Name" }, label: false %>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "email", placeholder: "Email" }, label: false %>
+        <%= f.input :phone_number,
+                    input_html: { placeholder: "Phone Number" }, label: false %>
         <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -41,14 +49,6 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password", placeholder: "Confirm your password" }, label: false %>
-        <%= f.input :first_name,
-                    required: true,
-                    input_html: {  placeholder: "Ingresa tu nombre" }, label: false %>
-        <%= f.input :last_name,
-                    required: true,
-                    input_html: {  placeholder: "Ingresa tu nombre apellido" }, label: false %>
-        <%= f.input :phone_number,
-                    input_html: { placeholder: "Ingresa tu numero telefonico" }, label: false %>
       </div>
 
       <div class="form-actions btn btn-primary mb-2" style='border-radius: 15px;'>

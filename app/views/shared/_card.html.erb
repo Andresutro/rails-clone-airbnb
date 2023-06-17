@@ -1,24 +1,26 @@
-<div id="card">
-  <%# This div would be the image %>
-  <div class="w-100" style='background-image: url("<%= cl_image_path(housing.image.key) %>"); background-size: cover; background-repeat: no-repeat; background-position: center center; height: 250px; border-radius: 10px;'></div>
+<%= link_to housing_path(housing), class:'text-decoration-none' do %>
+  <div id="card">
+    <%# This div would be the image %>
+    <div class="w-100" style='background-image: url("<%= cl_image_path(housing.image.key) %>"); background-size: cover; background-repeat: no-repeat; background-position: center center; height: 250px; border-radius: 10px;'></div>
 
-  <div id="d-flex content" class="mt-4" style="flex-direction: column; align-items: flex-start;">
-    <%# Nombre del housing %>
-    <%= link_to housing_path(housing), class:'text-decoration-none' do %> <h4 class="text-black"><%= housing.name %></h4> <% end %>
+    <div id="d-flex content" class="mt-4" style="flex-direction: column; align-items: flex-start;">
+      <%# Nombre del housing %>
+      <h4 class="text-black"><%= housing.name %></h4>
 
-    <%# Nombre de la ciudad %>
-    <p id="city" style="margin-bottom: 1px; color: gray;"><%= housing.city %></p>
-    <div>
-        <i class="fas fa-star star-yellow opacity-50"></i>
-        <small><em class="text-secondary"><%= housing.averagee_rating %></em></small>
-    </div>
-    <%# Fechas disponibles %>
-    <p id="availability" style="margin-bottom: 8px; color: gray;">Oct 23 - 28</p>
+      <%# Nombre de la ciudad %>
+      <p id="city" style="margin-bottom: 1px; color: gray;"><%= housing.city %></p>
+      <div>
+          <i class="fas fa-star star-yellow opacity-50" style="color: gray;"></i>
+          <small><em class="text-secondary"><%= housing.averagee_rating %></em></small>
+      </div>
+      <%# Fechas disponibles %>
+      <p id="availability" style="margin-bottom: 8px; color: gray;">Oct 23 - 28</p>
 
-    <%# Precio por noche %>
-    <div id="pricepernight" class='d-flex align-items-end gap-1'>
-      <h5 style="margin-bottom: 4px;">$<%= housing.price %></h5>
-      <p style="margin-bottom: 2px;">/ night</p>
+      <%# Precio por noche %>
+      <div id="pricepernight" class='d-flex align-items-end gap-1' style="color: black;">
+        <h5 style="margin-bottom: 4px;">$<%= housing.price %></h5>
+        <p style="margin-bottom: 2px;">/ night</p>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
