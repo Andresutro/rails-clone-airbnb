@@ -6,4 +6,5 @@ class Review < ApplicationRecord
   validates :content, presence: true
   validates :user_id, presence: true
   validates :housing_id, presence: true
+  validates :comment, length: { maximum: 400 }
 end

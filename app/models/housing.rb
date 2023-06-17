@@ -13,7 +13,7 @@ class Housing < ApplicationRecord
   validates :city, presence: true
   validates :state, presence: true
   validates :address, presence: true
-  validates :description, presence: true
+  #validates :description, presence: true
 
   def averagee_rating
     self.reviews.average(:rating).to_f.truncate(1)
