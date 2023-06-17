@@ -68,22 +68,24 @@
     <% if user_signed_in? %>
       <!-- User dropdown menu -->
       <li class="nav-item dropdown" style="list-style: none;">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= image_tag "https://i0.wp.com/studiolorier.com/wp-content/uploads/2018/10/Profile-Round-Sander-Lorier.jpg?resize=300%2C300&ssl=1", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-end rounded-4 mt-2" aria-labelledby="navbarDropdown">
           <%= link_to "Profile", new_housing_path, class: "dropdown-item" %>
           <%= link_to "Create housing", new_housing_path, class: "dropdown-item" %>
-          <%= link_to "My Housings", housings_path, class: "dropdown-item" %>
-          <%= link_to "My bookings", books_path, class: "dropdown-item" %>
-          <%= link_to "My guest requests", confirmations_path, class: "dropdown-item" %>
+          <%= link_to "Your Housings", housings_path, class: "dropdown-item" %>
+          <%= link_to "Your Bookings", books_path, class: "dropdown-item" %>
+          <%= link_to "Your Requests", confirmations_path, class: "dropdown-item" %>
+          <hr class="hr my-2"/>
+          <%= link_to "Help", new_housing_path, class: "dropdown-item", data: {turbo_method: :delete} %>
           <%= link_to "Log out",  destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
         </div>
       </li>
     <% else %>
       <li class="nav-item dropdown" style="list-style: none;">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= image_tag "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-end rounded-4 mt-2" aria-labelledby="navbarDropdown">
-          <%= link_to "Sign In", new_user_session_path, class: "dropdown-item" %>
           <%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %>
+          <%= link_to "Log In", new_user_session_path, class: "dropdown-item" %>
         </div>
       </li>
     <% end %>

@@ -1,10 +1,22 @@
-<h1>Detalles de la reserva</h1>
+<div class="form-container" style="margin: 96px 30% 128px 30%">
+  <h1 class='mb-4'>Your Bookings</h1>
 
-<% if @book %>
- <p><strong>Check-in:</strong> <%= @book.start_date %></p>
- <p><strong>Check-out:</strong> <%= @book.end_date %></p>
- <p><strong>Guests:</strong> <%= @book.guests %></p>
- <p><strong>Guests:</strong> <%= @book.status %></p>
-<% else %>
-  <p>No se encontró ninguna reserva.</p>
-<% end %>
+  <% if @book %>
+  <div id="card" style="margin-top: 64px;">
+  <%# This div would be the image %>
+    <div class="w-100" style='background-image: url("<%= cl_image_path(@book.housing.image.key) %>"); background-size: cover; background-repeat: no-repeat; background-position: center center; height: 250px; border-radius: 10px;'></div>
+
+    <div id="content" class="mt-4" style="flex-direction: column; align-items: flex-start;">
+      <%# Nombre del housing %>
+      <h4 class="text-black mb-3"><%= @book.housing.name %></h4>
+
+      <p class="text-muted"><strong>Check-in:</strong> <%= @book.start_date %></p>
+      <p class="text-muted"><strong>Check-out:</strong> <%= @book.end_date %></p>
+      <p class="text-muted"><strong>Guests:</strong> <%= @book.guests %></p>
+      <p class="text-muted"><strong>Status:</strong> <%= @book.status.capitalize %></p>
+    </div>
+  <% else %>
+    <p>No booking was found.</p>
+  <% end %>
+  </div>
+</div>

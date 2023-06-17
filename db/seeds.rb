@@ -26,7 +26,7 @@ housing_1.image.attach(io: file_1, filename: "sanmartin.png", content_type: "ima
 file_2 = URI.open("https://a0.muscache.com/im/pictures/miso/Hosting-46338360/original/ae64bc50-0180-4c55-bd57-6c642343e4ba.jpeg?im_w=1200")
 
 housing_2 = Housing.create!(
-  name: 'Cabin in Corralco with native forest and hot-tub',
+  name: 'Cabin in Corralco',
   user_id: user_3.id,
   price: '230',
   amount_bathrooms: '2',
@@ -81,13 +81,13 @@ housing_3.image.attach(io: file_3, filename: "mendoza.jpg", content_type: "image
 file_4 = URI.open("https://a0.muscache.com/im/pictures/273b4988-48b9-412a-934c-7329e662f948.jpg?im_w=1200")
 
 housing_4 = Housing.create!(
-  name: 'Casa Don Arelauquen Nueva y Moderna',
+  name: 'Casa Don Arelauquen',
   user_id: user_3.id,
   price: '257',
   amount_bathrooms: '3',
   amount_rooms: '3',
   msquare: '84',
-  city: 'Provincia de Río Negro',
+  city: 'Río Negro',
   state: 'Argentina',
   address: 'San Carlos de Bariloche',
   description: "Casa Don Arelauquen is a modern mountain house with a privileged location in the distinguished club Arelauquen. 20 minutes from Cerro Catedral and meters from the best golf course in Patagonia. Equipped 100%. Meters from Lake Gutiérrez.
@@ -118,7 +118,7 @@ housing_4.image.attach(io: file_4, filename: "rionegro.jpg", content_type: "imag
 file_5 = URI.open("https://a0.muscache.com/im/pictures/5969db06-6cf1-4fef-b20f-87788c2254e7.jpg?im_w=1200")
 
 housing_5 = Housing.create!(
-  name: 'Tiny Home en los Altos de los Calabozos',
+  name: 'Home en los Calabozos',
   user_id: user_2.id,
   price: '22',
   amount_bathrooms: '1',
@@ -141,7 +141,7 @@ housing_5.image.attach(io: file_5, filename: "pucon.jpg", content_type: "image/j
 file_6 = URI.open("https://a0.muscache.com/im/pictures/miso/Hosting-617280435580804396/original/82e78518-937b-47e7-aebc-ec14428b6d95.jpeg?im_w=1200")
 
 housing_6 = Housing.create!(
-  name: 'Sky Cabin an experience to enjoy as a couple',
+  name: 'Sky Cabin',
   user_id: user_1.id,
   price: '100',
   amount_bathrooms: '1',
@@ -190,7 +190,7 @@ housing_6.image.attach(io: file_6, filename: "curacautin.jpeg", content_type: "i
 file_7 = URI.open("https://a0.muscache.com/im/pictures/2f42ebc6-147c-4e63-ab6f-de94fccd8e3d.jpg?im_w=1200")
 
 housing_7 = Housing.create!(
-  name: 'Bungalow Oxapampa N2 with balcony, bathroom and friobar',
+  name: 'Bungalow Oxapampa',
   user_id: user_2.id,
   price: '32',
   amount_bathrooms: '1',
@@ -228,7 +228,7 @@ housing_8.image.attach(io: file_8, filename: "capachica.jpg", content_type: "ima
 file_9 = URI.open("https://a0.muscache.com/im/pictures/3825a7f9-b9d8-440f-8db3-140d915c2fbf.jpg?im_w=1200")
 
 housing_9 = Housing.create!(
-  name: '100 m from the Teatro Colon. Parisian Architecture',
+  name: 'Teatro Colon',
   user_id: user_1.id,
   price: '43',
   amount_bathrooms: '1',
@@ -257,7 +257,7 @@ housing_9.image.attach(io: file_9, filename: "buenosaires.jpg", content_type: "i
 file_10 = URI.open("https://a0.muscache.com/im/pictures/dc4a7e02-c662-450f-b56e-e273ad513216.jpg?im_w=1200")
 
 housing_10 = Housing.create!(
-  name: 'Cabaña Centro Rapa Nui "Haka Tere Hai Mahatu',
+  name: 'Cabaña Centro Rapa Nui',
   user_id: user_2.id,
   price: '40',
   amount_bathrooms: '1',
@@ -311,7 +311,7 @@ housing_11 = Housing.create!(
   amount_bathrooms: '2',
   amount_rooms: '3',
   msquare: '124',
-  city: 'San Pedro de Atacama',
+  city: 'San Pedro',
   state: 'Chile',
   address: 'Licancabur 244',
   description: "Inspired by the habitation of birds, Casa Nido offers you a unique moment in San Pedro de Atacama. Whether it is a family looking for a safe place to enjoy with their chicks; or a flock of travelers migrating to the northern sun; the truth is that this space overlooking the Licancabur Volcano will not leave any kind of visitor indifferent. Take the flight, we wait for you!
@@ -329,7 +329,7 @@ housing_11.image.attach(io: file_11, filename: "sanpedro.jpg", content_type: "im
 file_12 = URI.open("https://a0.muscache.com/im/pictures/d1ae497f-e790-4bb5-ac1b-e872a0a418f5.jpg?im_w=1200")
 
 housing_12 = Housing.create!(
-  name: 'Cabin with gardens, pool. Great location.',
+  name: 'Cabin with gardens',
   user_id: user_1.id,
   price: '32',
   amount_bathrooms: '1',
