@@ -126,7 +126,7 @@ housing_4 = Housing.create!(
   amount_bathrooms: '3',
   amount_rooms: '3',
   msquare: '84',
-  city: 'Provincia de Río Negro',
+  city: 'Río Negro',
   state: 'Argentina',
   address: 'San Carlos de Bariloche',
   description: "Casa Don Arelauquen is a modern mountain house with a privileged location in the distinguished club Arelauquen. 20 minutes from Cerro Catedral and meters from the best golf course in Patagonia. Equipped 100%. Meters from Lake Gutiérrez.
@@ -350,7 +350,7 @@ housing_11 = Housing.create!(
   amount_bathrooms: '2',
   amount_rooms: '3',
   msquare: '124',
-  city: 'San Pedro de Atacama',
+  city: 'San Pedro',
   state: 'Chile',
   address: 'Licancabur 244',
   description: "Inspired by the habitation of birds, Casa Nido offers you a unique moment in San Pedro de Atacama. Whether it is a family looking for a safe place to enjoy with their chicks; or a flock of travelers migrating to the northern sun; the truth is that this space overlooking the Licancabur Volcano will not leave any kind of visitor indifferent. Take the flight, we wait for you!

@@ -1,27 +1,27 @@
-<h1>Mis Reservas</h1>
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Fechas</th>
-      <th>Cantidad de personas</th>
-      <th>Estado</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @books.each do |book| %>
+<div class="form-container" style="margin: 96px 15%">
+  <h1 class="mb-5">Mis Reservas</h1>
+  <table>
+    <thead>
       <tr>
-        <td><%= book.id %></td>
-        <td><%= book.start_date %> - <%= book.end_date %></td>
-        <td><%= book.guests %></td>
-        <td><%= book.status %></td>
-        <td>
-          <%= link_to "Ver", book_path(book) %>
-          <%#= link_to "Editar", edit_book_path(book) %>
-          <%= link_to "Cancelar", book_path(book), method: :delete, data: { confirm: "¿Estás seguro de eliminar esta reserva?" } %>
-        </td>
+        <th style='padding-right: 64px;'>Date</th>
+        <th style='padding-right: 64px;'>Guests</th>
+        <th style='padding-right: 64px;'>Status</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+        <tr>
+          <td style="padding-right: 64px; padding-top: 8px;"><%= book.start_date %> - <%= book.end_date %></td>
+          <td style="padding-right: 64px; padding-top: 8px;"><%= book.guests %></td>
+          <td style="padding-right: 64px; padding-top: 8px;"><%= book.status.capitalize %></td>
+          <td style="padding-top: 8px;">
+            <%= link_to "Show", book_path(book), class:"btn btn-primary px-4 text-white", style:'border-radius: 10px;' %>
+            <%#= link_to "Editar", edit_book_path(book) %>
+            <%= link_to "Cancel", book_path(book), class:"text-secondary text-decoration-none", style:"padding-left: 16px;", method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
