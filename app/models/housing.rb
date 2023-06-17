@@ -14,7 +14,12 @@ class Housing < ApplicationRecord
   validates :state, presence: true
   validates :address, presence: true
   #validates :description, presence: true
-
+  include PgSearch::Model
+  pg_search_scope :search_result,
+    against: [:city],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
   def averagee_rating
     self.reviews.average(:rating).to_f.truncate(1)
   end

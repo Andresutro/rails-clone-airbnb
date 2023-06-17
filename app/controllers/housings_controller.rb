@@ -5,6 +5,10 @@ class HousingsController < ApplicationController
   # GET /housings or /housings.json
   def index
     @housings = policy_scope(Housing)
+    if params[:location].present?
+      @housings = Housing.search_result(params[:location])
+      p @housings
+    end
   end
 
   # GET /housings/1 or /housings/1.json

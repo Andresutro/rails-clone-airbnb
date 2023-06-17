@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   put '/books/:id', to: 'books#update'
   delete '/books/:id', to: 'books#destroy'
 
-  # get '/home', to: 'pages#home'
+  #get '/home', to: 'pages#home'
   # post '/offers', to: 'offers#index'
   # post '/products', to: 'products#create'
   # put '/products/:id', to: 'products#update'
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   # post '/bookings', to: 'bookings#create'
   # post '/reviews', to: 'reviews#create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+ #get '/housings', to: 'housings#index', as: 'housings'
 
   # get 'pages/example', to: 'pages#example'
   # Defines the root path route ("/")
