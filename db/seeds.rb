@@ -8,6 +8,8 @@
 require 'faker'
 puts "creating users"
 
+require 'open-uri'
+
 # Crear 10 housings falsos
 user_1 = User.create!(email:'andres@gmail.com', password:'123456',first_name:'Andres',last_name:'Marchant',phone_number:'123456789')
 user_2 = User.create!(email:'felipe@gmail.com', password:'123456',first_name:'Felipe',last_name:'Mandiola',phone_number:'123456789')
@@ -387,26 +389,25 @@ puts "Finished housings"
 
 housings = [housing_1, housing_2, housing_3, housing_4, housing_5, housing_6, housing_7, housing_8, housing_9, housing_10, housing_11, housing_12]
 files = [file_1, file_2, file_3, file_4, file_5, file_6, file_7, file_8, file_9, file_10, file_11, file_12]
-file = URI.open("https://res.cloudinary.com/dygidrhdn/image/upload/v1686697776/newalisa_snse01.webp")
 
 # Crear 10 housings falsos
 
-users.each do |user|
-  4.times do
-    Housing.create!(
-      name: Faker::Company.name[0..20],
-      user_id: user.id,
-      price: Faker::Number.between(from: 100, to: 1000),
-      amount_bathrooms: Faker::Number.between(from: 1, to: 5),
-      amount_rooms: Faker::Number.between(from: 1, to: 5),
-      msquare: Faker::Number.between(from: 50, to: 200),
-      city: Faker::Address.city,
-      state: Faker::Address.state,
-      address: Faker::Address.full_address,
-      description: Faker::Lorem.paragraph_by_chars(number: 500, supplemental: false),
-      images: 'https://res.cloudinary.com/dygidrhdn/image/upload/v1686697776/newalisa_snse01.webp'
+# users.each do |user|
+#   4.times do
+#     Housing.create!(
+#       name: Faker::Company.name[0..20],
+#       user_id: user.id,
+#       price: Faker::Number.between(from: 100, to: 1000),
+#       amount_bathrooms: Faker::Number.between(from: 1, to: 5),
+#       amount_rooms: Faker::Number.between(from: 1, to: 5),
+#       msquare: Faker::Number.between(from: 50, to: 200),
+#       city: Faker::Address.city,
+#       state: Faker::Address.state,
+#       address: Faker::Address.full_address,
+#       description: Faker::Lorem.paragraph_by_chars(number: 500, supplemental: false),
+#       images: 'https://res.cloudinary.com/dygidrhdn/image/upload/v1686697776/newalisa_snse01.webp'
 
-    )
-  end
-end
+#     )
+#   end
+# end
 puts "finished all seeds"
