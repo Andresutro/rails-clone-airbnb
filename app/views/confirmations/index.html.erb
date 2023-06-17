@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="display-4 text-center my-4">Confirmations#index</h1>
+  <p class="lead text-center mb-4">Find me in app/views/confirmations/index.html.erb</p>
+  <% current_user.housings.each do |housing| %>
+    <div class="card mb-3">
+      <div class="card-header">
+        Housing ID: <%= housing.id %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Housing ID: <%= housing.id %></h5>
+        <%= link_to "View Housing", confirmation_path(housing), class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

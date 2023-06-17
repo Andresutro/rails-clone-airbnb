@@ -79,7 +79,7 @@
       <div class='d-flex justify-content-between mb-3'>
         <%# Precio por noche %>
         <div id="pricepernight" class='d-flex align-items-end gap-1'>
-          <h5 style="margin-bottom: 4px;">$<%= @housing.price %></h5>
+          <h5 style="margin-bottom: 4px;">$ <%= @housing.price %></span></h5>
           <p style="margin-bottom: 2px;">/ night</p>
         </div>
 
@@ -102,25 +102,23 @@
       <div class='w-100'>
         <%= simple_form_for [@housing, @book], data: { controller: 'flatpickr' ,action: 'click->flatpickr#calculateDays'} do |f| %>
           <div>
-            <%= f.input :start_date, as: :string, input_html: { class: 'form-control flatpickr-input', data: { flatpickr_target: 'startTime' } }, label: false, placeholder: 'Start date' %>
+            <%= f.input :start_date, as: :string, input_html: { value: '2023-10-20' ,class: 'form-control flatpickr-input', data: { flatpickr_target: 'startTime' } }, label: false, placeholder: 'Start date' %>
           </div>
 
           <div>
-            <%= f.input :end_date, as: :string, input_html: { class: 'form-control flatpickr-input', data: { flatpickr_target: 'endTime' } , id: 'end_time'}, label: false, placeholder: 'End date' %>
+          <span class='d-none' type="text" data-flatpickr-target='housingPrice'>   <%= @housing.price  %> </span>
           </div>
 
           <div>
-            <p>Días: <span type="text" data-controller="flatpickr" data-target="dayCount"></span></p>
-            <%= f.input :guests, as: :integer %>
+            <%= f.input :end_date, as: :string, input_html: { value: '2023-10-25' ,class: 'form-control flatpickr-input', data: { flatpickr_target: 'endTime' } , id: 'end_time'}, label: false, placeholder: 'End date' %>
           </div>
+
 
           <div class="text-center w-100 mt-4">
             <%= f.button :submit, 'Schedule your appointment', class: 'btn btn-primary text-white py-3 w-100', style:'border-radius: 10px;' %>
           </div>
-        <% end %>
 
-        </div>
-      </div>
+
 
       <p class='w-100 text-center text-secondary mt-4'>You won't be charged yet.</p>
 
@@ -128,14 +126,14 @@
 
       <%# Precio por noche %>
       <div class='d-flex justify-content-between mt-4'>
-        <p>$<%= @housing.price %> x 5 nights</p>
-        <p> $2,125</p>
+        <p>$<%= @housing.price %> x <p><span type="text" data-flatpickr-target='dayCount' >0</span></p>noches</p>
+        <p> $<span type="text" data-flatpickr-target='totalDays'></p>
       </div>
 
       <%# Descuento semanal %>
       <div class='d-flex justify-content-between'>
-        <p>Weekly discount</p>
-        <p class='text-success'>-$28</p>
+        <p>Fee</p>
+        <p class='text-success' data-flatpickr-target='fee' ></p>
       </div>
 
       <%# Divider %>
@@ -143,13 +141,17 @@
 
       <%# Total %>
       <div class='d-flex justify-content-between'>
+        <%= f.input :total_price, as: :string, input_html: { class: 'd-none' ,value: '' , data: { flatpickr_target: 'totalPrice' }} %>
         <h6>Total</h6>
-        <h6>$2,097</h6>
+        <h6  data-flatpickr-target='total' ></h6>
+        <% end %>
+
       </div>
     </div>
   </div>
 </div>
   <% end %>
+</div>
 
 
 <%# Divider %>

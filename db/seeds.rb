@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings"q }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
-require 'open-uri'
 puts "creating users"
 
 # Crear 10 housings falsos
@@ -392,22 +391,22 @@ file = URI.open("https://res.cloudinary.com/dygidrhdn/image/upload/v1686697776/n
 
 # Crear 10 housings falsos
 
-# users.each do |user|
-#   4.times do
-#     housing = Housing.create!(
-#       name: Faker::Company.name[0..20],
-#       user_id: user.id,
-#       price: Faker::Number.between(from: 100, to: 1000),
-#       amount_bathrooms: Faker::Number.between(from: 1, to: 5),
-#       amount_rooms: Faker::Number.between(from: 1, to: 5),
-#       msquare: Faker::Number.between(from: 50, to: 200),
-#       city: Faker::Address.city,
-#       state: Faker::Address.state,
-#       address: Faker::Address.full_address,
-#       description: Faker::Lorem.paragraph_by_chars(number: 500, supplemental: false),
-#     )
-#   end
-#   housing.image.attach(files.sample, filename: "nes.webp", content_type: "image/webp")
-#   housing.save
-# end
-# puts "finished all seeds"
+users.each do |user|
+  4.times do
+    Housing.create!(
+      name: Faker::Company.name[0..20],
+      user_id: user.id,
+      price: Faker::Number.between(from: 100, to: 1000),
+      amount_bathrooms: Faker::Number.between(from: 1, to: 5),
+      amount_rooms: Faker::Number.between(from: 1, to: 5),
+      msquare: Faker::Number.between(from: 50, to: 200),
+      city: Faker::Address.city,
+      state: Faker::Address.state,
+      address: Faker::Address.full_address,
+      description: Faker::Lorem.paragraph_by_chars(number: 500, supplemental: false),
+      images: 'https://res.cloudinary.com/dygidrhdn/image/upload/v1686697776/newalisa_snse01.webp'
+
+    )
+  end
+end
+puts "finished all seeds"

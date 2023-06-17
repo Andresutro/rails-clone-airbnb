@@ -74,7 +74,7 @@
           <%= link_to "Create housing", new_housing_path, class: "dropdown-item" %>
           <%= link_to "My Housings", housings_path, class: "dropdown-item" %>
           <%= link_to "My bookings", books_path, class: "dropdown-item" %>
-          <%= link_to "My guest requests", books_path, class: "dropdown-item" %>
+          <%= link_to "My guest requests", confirmations_path, class: "dropdown-item" %>
           <%= link_to "Log out",  destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
         </div>
       </li>

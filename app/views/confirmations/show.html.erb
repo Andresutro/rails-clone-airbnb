@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="display-4 text-center my-4">Housing ID: <%= @housing.id %></h1>
+  <% @housing.books.each do |book| %>
+    <div class="card mb-3">
+      <div class="card-header">
+        Book ID: <%= book.id %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Housing ID: <%= @housing.id %></h5>
+        <p class="card-text">Start Date: <%= book.start_date %></p>
+        <p class="card-text">End Date: <%= book.end_date %></p>
+        <p class="card-text">Guests: <%= book.guests %></p>
+        <p class="card-text">Status: <%= book.status %></p>
+        <p class="card-text">Total Price: <%= book.total_price %></p>
+        <%= link_to "Accept", accept_confirmation_path(book),data: { turbo_method: :put}, class: "btn btn-success" %>
+        <%= link_to "Reject", reject_confirmation_path(book),data: { turbo_method: :put}, class: "btn btn-danger" %>
+      </div>
+    </div>
+  <% end %>
+</div>
