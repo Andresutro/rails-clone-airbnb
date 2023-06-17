@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration[7.0]
       t.references :user, null: false, foreign_key: true
       t.references :housing, null: false, foreign_key: true
       t.date :start_date
-      t.string :end_date
+      t.date :end_date
       t.integer :guests
 
       t.timestamps

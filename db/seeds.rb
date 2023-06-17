@@ -1,46 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings"q }])
-#   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 require 'open-uri'
 puts "creating users"
-
-require 'open-uri'
-
-# Crear 10 housings falsos
 user_1 = User.create!(email:'andres@gmail.com', password:'123456',first_name:'Andres',last_name:'Marchant',phone_number:'123456789')
 user_2 = User.create!(email:'felipe@gmail.com', password:'123456',first_name:'Felipe',last_name:'Mandiola',phone_number:'123456789')
 user_3 = User.create!(email:'rodrigo@gmail.com', password:'123456',first_name:'Rodrigo',last_name:'Von',phone_number:'123456789')
 
-# # Seed de Users profesional 1
-# pablo = User.create!(
-#   email: 'pablo@gmail.com',
-#   password: '123456',
-#   first_name: 'Pablo',
-#   last_name: 'Gutierrez',
-#   phone_number:'+56 9 4488 9900'
-# )
-
-# # Divider
-
-# # Seed de Users profesional 2
-# lupe = User.create!(
-#   email: 'lupe@gmail.com',
-#   password: '123456',
-#   first_name: 'Lupe',
-#   last_name: 'Lopez',
-#   phone_number:'+56 9 2432 1212'
-# )
-
-# Divider
-
 puts "finished users"
 
-# Seed de Housings profesional 1
 file_1 = URI.open("https://a0.muscache.com/im/pictures/miso/Hosting-688547562940962585/original/e9e0fde5-9dcb-4ce4-b226-1292833b98ed.png?im_w=1200")
 
 housing_1 = Housing.create!(
@@ -57,9 +23,6 @@ housing_1 = Housing.create!(
 )
 housing_1.image.attach(io: file_1, filename: "sanmartin.png", content_type: "image/png")
 
-# Divider
-
-# Seed de Housings profesional 2
 file_2 = URI.open("https://a0.muscache.com/im/pictures/miso/Hosting-46338360/original/ae64bc50-0180-4c55-bd57-6c642343e4ba.jpeg?im_w=1200")
 
 housing_2 = Housing.create!(
@@ -82,8 +45,6 @@ housing_2 = Housing.create!(
   This brand new residence has a wooden hottube and an outdoor stove. The thermal insulation allows to maintain optimal temperatures, it also has central heating with a very easy-to-use pellet boiler. We will leave you pellets available for use.'
 )
 housing_2.image.attach(io: file_2, filename: "corralco.jpeg", content_type: "image/jpeg")
-
-# Divider
 
 # Seed de Housings profesional 3
 file_3 = URI.open("https://a0.muscache.com/im/pictures/f671409c-6023-425f-bbaf-721a36c43c80.jpg?im_w=1200")
@@ -411,4 +372,6 @@ files = [file_1, file_2, file_3, file_4, file_5, file_6, file_7, file_8, file_9,
 #     )
 #   end
 # end
+
 puts "finished all seeds"
+

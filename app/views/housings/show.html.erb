@@ -100,9 +100,9 @@
       </div>
       <div id='reviews-and-such' class="d-flex justify-content-center">
       <div class='w-100'>
-        <%= simple_form_for [@housing, @book], data: { controller: 'flatpickr' ,action: 'click->flatpickr#calculateDays'} do |f| %>
+        <%= simple_form_for [@housing, @book], data: { controller: 'flatpickr' ,action: 'click->flatpickr#calculateDays', flatpickr_disable_value: @housing.disabled_dates } do |f| %>
           <div>
-            <%= f.input :start_date, as: :string, input_html: { value: '2023-10-20' ,class: 'form-control flatpickr-input', data: { flatpickr_target: 'startTime' } }, label: false, placeholder: 'Start date' %>
+            <%= f.input :start_date, as: :string,  type: :time, input_html: { value: @housing.first_available_dates[:from] ,class: 'form-control flatpickr-input', data: { flatpickr_target: 'startTime' } }, label: false, placeholder: 'Start date' %>
           </div>
 
           <div>
@@ -110,9 +110,8 @@
           </div>
 
           <div>
-            <%= f.input :end_date, as: :string, input_html: { value: '2023-10-25' ,class: 'form-control flatpickr-input', data: { flatpickr_target: 'endTime' } , id: 'end_time'}, label: false, placeholder: 'End date' %>
+            <%= f.input :end_date, as: :string, type: :time , input_html: { value: @housing.first_available_dates[:to] ,class: 'form-control flatpickr-input', data: { flatpickr_target: 'endTime' } , id: 'end_time'}, label: false, placeholder: 'End date' %>
           </div>
-
 
           <div class="text-center w-100 mt-4">
             <%= f.button :submit, 'Schedule your appointment', class: 'btn btn-primary text-white py-3 w-100', style:'border-radius: 10px;' %>
@@ -126,7 +125,7 @@
 
       <%# Precio por noche %>
       <div class='d-flex justify-content-between mt-4'>
-        <p>$<%= @housing.price %> x <p><span type="text" data-flatpickr-target='dayCount' >0</span></p>noches</p>
+        <p>$<%= @housing.price %> x <p><span type="text" data-flatpickr-target='dayCount' >5</span></p>noches</p>
         <p> $<span type="text" data-flatpickr-target='totalDays'></p>
       </div>
 

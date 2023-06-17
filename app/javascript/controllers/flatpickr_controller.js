@@ -5,8 +5,11 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 export default class extends Controller {
   static targets = ["startTime", "endTime", "dayCount", "housingPrice", "totalDays", "fee", "total","totalPrice"];
 
+  static values = {disable: Array};
 
   connect() {
+    console.log(typeof this.disableValue)
+
     // const defaultStartDate = new Date();
     // console.log('dsadsadsadsadsad',defaultStartDate.getDate());
     // const defaultEndDate = new Date();
@@ -16,11 +19,13 @@ export default class extends Controller {
       minDate: "today" || this.startTimeTarget.value,
       enableTime: true,
       plugins: [new rangePlugin({ input: this.endTimeTarget })],
+      disable: this.disableValue,
       onChange: this.startDateChange.bind(this)
     });
 
     flatpickr(this.endTimeTarget, {
       minDate: "today" || this.endTimeTarget.value,
+      disable: this.disableValue,
       onChange: this.endDateChange.bind(this)
     });
 
@@ -45,6 +50,7 @@ export default class extends Controller {
   calculateDays() {
     const startDate = this.startTimeTarget.value;
     const endDate = this.endTimeTarget.value;
+    console.log(this.disableValue)
 
     console.log(startDate);
     console.log(endDate);
