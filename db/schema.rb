@@ -42,22 +42,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_055628) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "bookings", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "housting_id"
-    t.date "start_date"
-    t.date "end_date"
-    t.decimal "price"
-    t.integer "m2"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "books", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "housing_id", null: false
     t.date "start_date"
-    t.string "end_date"
+    t.date "end_date"
     t.integer "guests"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -80,6 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_055628) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
+    t.string "photo"
     t.index ["user_id"], name: "index_housings_on_user_id"
   end
 
