@@ -106,21 +106,19 @@
           </div>
 
           <div>
-            <%= f.input :end_date, as: :string, input_html: { class: 'form-control flatpickr-input', data: { flatpickr_target: 'endTime' } , id: 'end_time'}, label: false, placeholder: 'End date' %>
+          <span class='d-none' type="text" data-flatpickr-target='housingPrice'>   <%= @housing.price  %> </span>
           </div>
 
           <div>
-            <p>Días: <span type="text"  data-flatpickr-target="dayCount">0</span></p>
-            <%= f.input :guests, as: :integer %>
+            <%= f.input :end_date, as: :string, input_html: { class: 'form-control flatpickr-input', data: { flatpickr_target: 'endTime' } , id: 'end_time'}, label: false, placeholder: 'End date' %>
           </div>
+
 
           <div class="text-center w-100 mt-4">
             <%= f.button :submit, 'Schedule your appointment', class: 'btn btn-primary text-white py-3 w-100', style:'border-radius: 10px;' %>
           </div>
-        <% end %>
 
-        </div>
-      </div>
+
 
       <p class='w-100 text-center text-secondary mt-4'>You won't be charged yet.</p>
 
@@ -128,14 +126,14 @@
 
       <%# Precio por noche %>
       <div class='d-flex justify-content-between mt-4'>
-        <p>$<%= @housing.price %> x <p>Días: <span type="text"  >0</span></p> </p>
-        <p> $2,125 <span type="text" >1500</span></p>
+        <p>$<%= @housing.price %>      x <p> Días: <span type="text" data-flatpickr-target='dayCount' >0</span></p></p>
+        <p> $<span type="text" data-flatpickr-target='totalDays'></p>
       </div>
 
       <%# Descuento semanal %>
       <div class='d-flex justify-content-between'>
-        <p>Weekly discount</p>
-        <p class='text-success'>-$28</p>
+        <p>Fee</p>
+        <p class='text-success' data-flatpickr-target='fee' ></p>
       </div>
 
       <%# Divider %>
@@ -144,7 +142,9 @@
       <%# Total %>
       <div class='d-flex justify-content-between'>
         <h6>Total</h6>
-        <h6>$2,097</h6>
+        <h6  data-flatpickr-target='total' ></h6>
+        <% end %>
+
       </div>
     </div>
   </div>
