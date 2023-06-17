@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
 
-  get 'confirmations', to: 'confirmations#index' , as: 'confirmations'
-  get 'confirmations/:id', to: 'confirmations#show', as: 'confirmation'
+  # get 'confirmations', to: 'confirmations#index' , as: 'confirmations'
+  # get 'confirmations/:id', to: 'confirmations#show', as: 'confirmation'
+  root to: "pages#home"
+
+
+  resources :confirmations, only: [:index, :show] do
+    member do
+      put :accept
+      put :reject
+    end
+  end
+
+
+
 
 
   get '/books', to: 'books#index'
@@ -17,7 +29,6 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  root to: "pages#home"
   get '/books', to: 'books#index'
 
 end

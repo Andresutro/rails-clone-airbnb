@@ -38,6 +38,11 @@ users.each do |user|
     housing.images.attach(io: file, filename: "nes.png", content_type: "image/png")
     housing.save
 
+
   end
 end
 puts "finished all seeds"
+puts "create book de felipe a la primera casa de andres all seeds"
+book_1  =  Book.new(user_id: user_2.id, housing_id: user_1.housings.first.id, start_date: Date.today, end_date: Date.today + 5, guests: 2, total_price: 1000, status: "pending")
+book_1.save!
+puts "finished book de felipe a la primera casa de andres all seeds"

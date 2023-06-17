@@ -141,7 +141,7 @@
 
       <%# Total %>
       <div class='d-flex justify-content-between'>
-        <%= f.input :total_price, as: :string, input_html: { value: '' , data: { flatpickr_target: 'totalPrice' }} %>
+        <%= f.input :total_price, as: :string, input_html: { class: 'd-none' ,value: '' , data: { flatpickr_target: 'totalPrice' }} %>
         <h6>Total</h6>
         <h6  data-flatpickr-target='total' ></h6>
         <% end %>
@@ -151,6 +151,7 @@
   </div>
 </div>
   <% end %>
+</div>
 
 
 <%# Divider %>
