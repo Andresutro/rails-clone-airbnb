@@ -48,6 +48,6 @@ class BooksController < ApplicationController
     end
 
     def books_params
-      params.require(:book).permit(:start_date, :end_date, :guests)
+      params.require(:book).permit(:start_date, :end_date, :guests, :total_price, :status)
     end
 end

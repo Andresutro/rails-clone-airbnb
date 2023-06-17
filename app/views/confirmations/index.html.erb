@@ -1,0 +1,7 @@
+<h1>Confirmations#index</h1>
+<p>Find me in app/views/confirmations/index.html.erb</p>
+<% current_user.housings.each do |housing| %>
+  <%= housing.books.each do |book| %>
+    <%= book %>
+  <% end %>
+<% end %>

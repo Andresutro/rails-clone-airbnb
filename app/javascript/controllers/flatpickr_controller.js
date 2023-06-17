@@ -1,76 +1,79 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 import flatpickr from "flatpickr";
-// Import the rangePlugin from the flatpickr library
 import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 
-// Connects to data-controller="flatpickr"
 export default class extends Controller {
-  static targets = [ "startTime", "endTime", "dayCount",'housingPrice','totalDays','fee', 'total']
+  static targets = ["startTime", "endTime", "dayCount", "housingPrice", "totalDays", "fee", "total","totalPrice"];
+
 
   connect() {
-    flatpickr(this.startTimeTarget, {
-      minDate: "today",
-      enableTime: true,
+    // const defaultStartDate = new Date();
+    // console.log('dsadsadsadsadsad',defaultStartDate.getDate());
+    // const defaultEndDate = new Date();
+    // defaultEndDate.setDate(defaultEndDate.getDate() + 4);
 
-      plugins: [new rangePlugin({ input: "#end_time"})],
+    flatpickr(this.startTimeTarget, {
+      minDate: "today" || this.startTimeTarget.value,
+      enableTime: true,
+      plugins: [new rangePlugin({ input: this.endTimeTarget })],
       onChange: this.startDateChange.bind(this)
-    })
+    });
 
     flatpickr(this.endTimeTarget, {
-      minDate: "today",
+      minDate: "today" || this.endTimeTarget.value,
       onChange: this.endDateChange.bind(this)
-    })
+    });
+
+    this.calculateDays();
   }
 
 
-startDateChange() {
-  this.calculateDays()
-}
 
-endDateChange() {
-  this.calculateDays()
-}
 
-calculateDays() {
-  const startDate = this.startTimeTarget.value
-  const endDate = this.endTimeTarget.value
 
-  console.log(startDate)
-  console.log(endDate)
 
-  let fecha1 = new Date(startDate);
-  let fecha2 = new Date(endDate);
 
-  let diferencia = fecha2 - fecha1;
-  let diferenciaEnDias = diferencia / (1000 * 60 * 60 * 24);
 
-  console.log('dias', diferenciaEnDias)
-  console.log('dias', this.housingPriceTarget.innerText)
-  const housing = this.housingPriceTarget.innerText
+  startDateChange() {
+    this.calculateDays();
+  }
 
-  if (isNaN(diferenciaEnDias)) {
-    this.dayCountTarget.innerText  = 0
-} else {
-    this.dayCountTarget.innerText  = diferenciaEnDias
+  endDateChange() {
+    this.calculateDays();
+  }
 
-    let total_witout_fee = parseInt(diferenciaEnDias) * parseInt(housing)
-    this.totalDaysTarget.innerText  = total_witout_fee
-    let fee = (total_witout_fee * 0.17).toFixed(2)
-    this.feeTarget.innerText  = fee
-    let total = (parseFloat(fee) + total_witout_fee).toFixed(2)
-    this.totalTarget.innerText  = total
+  calculateDays() {
+    const startDate = this.startTimeTarget.value;
+    const endDate = this.endTimeTarget.value;
 
-    // this.housingPriceTarget.innerText = diferenciaEnDias
-    // let total = precio * diferenciaEnDias
-    // console.log('precio',precio)
-    // console.log('total',total)
+    console.log(startDate);
+    console.log(endDate);
 
-}
-}
+    const fecha1 = new Date(startDate);
+    const fecha2 = new Date(endDate);
 
-// calculateTotal() {
-//   console.log('total',total)
-//   total =  diferenciaEnDias * precio
-//   this.ttotalTarget.innerText = total
-// }
+    const diferencia = fecha2 - fecha1;
+    const diferenciaEnDias = diferencia / (1000 * 60 * 60 * 24);
+
+    console.log('dias', diferenciaEnDias);
+    console.log('dias', this.housingPriceTarget.innerText);
+
+    const housingPrice = parseInt(this.housingPriceTarget.innerText);
+
+    if (isNaN(diferenciaEnDias)) {
+      this.dayCountTarget.innerText = "0";
+    } else {
+      this.dayCountTarget.innerText = diferenciaEnDias.toString();
+
+      const totalWithoutFee = parseInt(diferenciaEnDias) * housingPrice;
+      this.totalDaysTarget.innerText = totalWithoutFee.toString();
+
+      const fee = (totalWithoutFee * 0.17).toFixed(2);
+      this.feeTarget.innerText = fee;
+
+      const total = (parseFloat(fee) + totalWithoutFee).toFixed(2);
+      this.totalTarget.innerText = total;
+      this.totalPriceTarget.value = total;
+    }
+  }
 }
