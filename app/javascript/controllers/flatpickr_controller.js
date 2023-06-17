@@ -13,3 +13,11 @@ export default class extends Controller {
   }
 
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  flatpickr(".datepicker", {
+    // Configuraciones adicionales de Flatpickr
+    // Puedes ajustar estas configuraciones según tus necesidades
+    // Consulta la documentación de Flatpickr para obtener más detalles: https://flatpickr.js.org/
+  });
+});
