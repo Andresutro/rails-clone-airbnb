@@ -155,10 +155,10 @@
 
 
 <%# Divider %>
-<hr class="hr m-4 my-5"/>
+<hr class="hr my-5"/>
 
 <%# Reviews Container %>
-<div class="m-4">
+<div>
   <%# Reviews %>
   <div id='reviews-and-such' class="d-flex spacing-4 mb-2">
     <div>
@@ -191,7 +191,7 @@
 <% if current_user != @housing.user %>
     </div>
     <div>
-      <div class="bg-white rounded p-3">
+      <div class="bg-white rounded py-3">
         <h5>Add your review</h5>
         <%= simple_form_for [@housing, @review] do |f| %>
           <%= f.input :content, placeholder: "Write your review here...", label: false, class: "form-control pt-4" %>
